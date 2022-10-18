@@ -1,26 +1,70 @@
-<div class="container mt-5">
+<div class="container mt-5 ">
     <div class="row">
         <div class="col-3 bg-transparent"></div>
-        <div class="col-6 CustomColor2 rounded  text-center">
+        <div class="col-6 CustomColor1 rounded  text-center ">
             <h3 class="mt-4">Iniciar sesión en Tartas Lorena</h3>
-            <form>
+            <form  [formGroup]="registerForm" class="needs-validation" novalidate >
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Name">
-                    <label for="floatingInput">Name</label>
+                    <input 
+                    type="text" 
+                    class="form-control"
+                    placeholder="Name"
+                    formControlName="name"
+                    id="nameID"
+                    required
+                    
+                    >
+                    <label for="nameID">Name</label>
+                    <span 
+                    class="form-text text-danger"
+                    *ngIf="siElCampoNoesValido('name')"
+                    [innerHTML]="nameMsgErr"
+                    >
+                    
+                    </span>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input
+                    type="email"
+                    class="form-control"
+                    placeholder="name@example.com"
+                    formControlName="email"
+                    >
                     <label for="floatingInput">Email address</label>
+                    <span 
+                    class="form-text text-danger"
+                    *ngIf="siElCampoNoesValido('email')"
+                    [innerHTML]="emailMsgErr"
+                    >
+                        
+                    </span>
                 </div>
                 <div class="form-floating  mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                    formControlName="password"
+                    >
                     <label for="floatingPassword">Password</label>
+                    <span 
+                    class="form-text text-danger"
+                    *ngIf="siElCampoNoesValido('password')"
+                    [innerHTML]="passwordMsgErr"
+                    >
+                    </span>
                 </div>
                 
-                    <button class="btn CustomColor3 "  >Regsiter</button>
+                    <button class="btn CustomColor3" type="submit"  (click)="submitUser()">Regsiter</button>
             </form>
+
             <div class="text-center">
                 <p>ya tienes cuenta creada ? <a routerLink="/auth/login">click aqui.</a> </p>
+                    <!-- <span>Valid</span>
+                    <pre>{{registerForm.valid}}</pre>
+                    <span>value</span>
+                    <pre>{{registerForm.value | json }}</pre>
+                    -->
             </div>
         </div>
         <div class="col-3 bg-transparent"></div>
