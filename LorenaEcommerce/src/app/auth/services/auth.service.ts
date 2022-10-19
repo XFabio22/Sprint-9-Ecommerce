@@ -9,7 +9,7 @@ import { catchError, map, of,tap } from 'rxjs';
 })
 export class authService {
 
-  private Auth_URL = environment.USERBASEURL
+  private Auth_URL = environment.BaseUrL
 
   constructor(private http:HttpClient) { }
 
