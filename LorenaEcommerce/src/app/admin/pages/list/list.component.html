@@ -1,1 +1,12 @@
-<p>list works!</p>
+<h1>Listado de Prodcutos</h1>
+<hr>
+
+<div class="container">
+    <div class="d-flex  felx-row flex-wrap flex-column" >
+            <div
+            *ngFor="let producto of productos"
+            >
+            <app-card-products [prodcuto]="producto" ></app-card-products>
+            </div>
+    </div>
+</div>

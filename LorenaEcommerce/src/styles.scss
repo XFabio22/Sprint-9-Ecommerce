@@ -1,21 +1,39 @@
+/******* Customized Bootstrap ********/
 
-.CustomPrimary {
-    background-color: #F2F0EB;
+$primary: #E88F2A ;
+$secondary: #FAF3EB;
+$light: #FFFFFF;
+$dark: #2B2825;
+.bg-Primary{
+    background-color: #E88F2A;
 }
-.CustomColor2{
-    background-color:#F2A2A9;
+
+.text-Primary{
+    color: #E88F2A;
 }
-.CustomColor3{
-    background-color:#B0D9D1;
-    color: #B0D9D1;
-}
-.CustomColor4{
-    background-color:#F2BBBB;
-}
-.CustomColor5{
-    background-color:#595959;
-    color: #595959;
-}
-.svgBG{
-    background-image: url(./assets/wave-haikei.svg);
-}
+
+$theme-colors:(
+    "primary": $primary  ,
+    "secondary": $secondary,
+);
+$font-family-sans-serif: 'Open Sans', sans-serif;
+
+$headings-font-family: 'Oswald', sans-serif;
+
+$body-color: #656565;
+
+$headings-color: $dark;
+
+$display-font-weight: 700;
+
+$enable-responsive-font-sizes: true;
+
+$border-radius: false;
+
+$link-decoration: none;
+
+$enable-negative-margins: true;
+
+
+
+// 5. Add additional custom code here

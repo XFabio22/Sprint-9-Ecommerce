@@ -15,9 +15,9 @@ export class productsService {
 
     constructor(private http:HttpClient) { }
 
-    getListProdcuts():Observable<DBProduct[]>{
+    getListProdcuts():Observable<ProductsResponse>{
         const url = `${this.Base_UrL}`;
-        return  this.http.get<DBProduct[]>(`${url}/producto/product`)
+        return  this.http.get<ProductsResponse>(`${url}/producto/product`)
     }
 
     addProducts(){

@@ -16,12 +16,10 @@ export class ListComponent implements OnInit {
   productos:DBProduct[]=[]
   ngOnInit(): void {
     this.productsService.getListProdcuts()
-    .subscribe(res =>{
-      this.productos = res
-      console.log(res);
-      
+    .subscribe((res:ProductsResponse)=>{
+      this.productos.push(...res.dbProduct);
     });
-    console.log(this.productos);
+    
     
   }
 }

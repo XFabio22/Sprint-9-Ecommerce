@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DBProduct } from '../../interfaces/products.interfaces';
 
 @Component({
   selector: 'app-card-products',
@@ -11,5 +12,5 @@ export class CardProductsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  @Input ()prodcuto! : DBProduct 
 }
