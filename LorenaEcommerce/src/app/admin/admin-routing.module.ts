@@ -3,29 +3,32 @@ import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
 import { ListComponent } from './pages/list/list.component';
+import { AddProductsComponent } from './pages/add-products/add-products.component';
 
-const ruta: Routes = [
-  {
-      path:'',
-      children:[
-          {
-              path:'adminHome',
-              component:AdminHomeComponent
-          },
-          {
-              path:'list',
-              component:ListComponent
-          },
-          {
-              path:'**',
-              redirectTo:'adminHome'
-          }
-      ]
-  }
+const rutasADMIN: Routes = [
+    {
+        path:'',
+        component:AdminHomeComponent,
+        children:[
+            {
+                path:'list',
+                component:ListComponent
+            },
+
+            {
+                path:'addProducts',
+                component:AddProductsComponent
+            },
+            {
+                path:'**',
+                redirectTo:'list'
+            }
+        ]
+    }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(ruta)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(rutasADMIN)],
+    exports: [RouterModule]
 })
 export class AdminRoutingModule { }

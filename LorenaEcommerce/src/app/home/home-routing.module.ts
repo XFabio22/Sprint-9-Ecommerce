@@ -10,10 +10,6 @@ const ruta: Routes = [
             {
                 path:'home',
                 component:HomeComponent
-            },
-            {
-                path:'**',
-                redirectTo:'home'
             }
         ]
     }

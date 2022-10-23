@@ -1,0 +1,91 @@
+<div class="container mt-5 ">
+    <div class="row">
+        <div class="col-9 rounded   ">
+            <h3 class="mt-4">Añada el producto (rellene todo los campos)</h3>
+            <form   class="needs-validation" novalidate >
+                <div class="form-floating mb-3">
+                    <!-- name -->
+                    <input 
+                    type="text" 
+                    class="form-control"
+                    placeholder="Name"
+                    formControlName="name"
+                    
+                    required
+                    id="nameID"
+                    >
+                    <label for="nameID">Nombre de el producto</label>
+                </div>
+
+                <!-- Categoria -->
+                <div class="input-group   mb-3">
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Agregar Categoria" 
+                        placeholder="Añadir categoria"
+                        formControlName="name"
+                        
+                        required
+                        >   
+                    <button 
+                        class="btn btn-outline-primary" 
+                        type="button">
+                        Agregar
+                    </button>
+                </div>
+
+            
+            
+                <!-- Precio -->
+                <div class="form-floating mb-3">
+                    <input
+                    type="number"
+                    class="form-control"
+                    id="precio"
+                    placeholder="Name"
+                    formControlName="name"
+                    
+                    required
+                    >
+                    <label for="precio">Precio</label>
+                </div>
+                <!-- Descuento -->
+                <div class="form-floating mb-3">
+                    <input
+                    type="number"
+                    class="form-control"
+                    id="Descuento"
+                    placeholder="Name"
+                    formControlName="name"
+                    
+                    required
+                    >
+                    <label for="Descuento">Descuento</label>
+                </div>
+                <!-- Img -->
+                <div class="form-floating mb-3">
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="img"
+                    placeholder="Name"
+                    formControlName="name"
+                    
+                    required
+                    >
+                    <label for="img">Nombre de la imagen</label>
+                </div>
+                    <div class="form-floating">
+                        <textarea class="form-control" id="floatingTextarea"></textarea>
+                        <label for="floatingTextarea">Descripcion</label>
+                    </div>
+                
+                    <button class="btn CustomColor3" type="submit" >Submit</button>
+            </form>
+
+            
+        </div>
+        <div class="col-3 bg-transparent"></div>
+    </div>
+</div>

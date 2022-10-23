@@ -1,49 +1,59 @@
+<mat-sidenav-container  class="example-container" autosize>
+    <mat-sidenav  #sidenav mode="push">
+        <mat-toolbar>
+            <span>menu</span>
+            <span class="spacer"></span>
+            <button  mat-icon-button 
+            (click)="sidenav.toggle()">
+                <mat-icon>
+                    close
+                </mat-icon>
+            </button>
+        </mat-toolbar>
+        <mat-nav-list>
+            <a routerLink="/home"
+            mat-list-item
+            (click)="sidenav.toggle()"
+            >
+                <mat-icon mat-list-icon>home</mat-icon>
+                <span>Home</span>
+            </a>
+            <a routerLink="list"
+            mat-list-item
+            (click)="sidenav.toggle()"
+            >
+                <mat-icon mat-list-icon>list</mat-icon>
+                <span>Storage</span>
+            </a>
+            <a routerLink="addProducts"
+            mat-list-item
+            (click)="sidenav.toggle()"
+            >
+                <mat-icon mat-list-icon>add</mat-icon>
+                <span>Añadir Producto</span>
+            </a>
 
-    <div class="row align-items-start  bg-light">
+            <a routerLink="./buscar"
+            mat-list-item
+            (click)="sidenav.toggle()"
+            >
+                <mat-icon mat-list-icon>search</mat-icon>
+                <span>Buscar Heroe</span>
+            </a>
+        </mat-nav-list>
         
-        <div class="col-3 ">
-            <h2>Administracion tartas lorena</h2>
-            <hr>
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                    
-                        </button>
-                    </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-                        </div>
-                    </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                            Accordion Item #2
-                        </button>
-                    </h2>
-                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                            Pedidos
-                        </button>
-                    </h2>
-                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                        <button class="btn ">nuevos</button>
-                        <button class="btn ">precesado</button>
-                        <button class="btn ">enviado</button>
-                        <button class="btn ">devuelto</button>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>
+    </mat-sidenav>
 
-
-
-
-        
+    <mat-toolbar>
+        <button  mat-icon-button 
+        (click)="sidenav.toggle()">
+            <mat-icon>
+                menu
+            </mat-icon>
+        </button>
+    </mat-toolbar>
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+    
+</mat-sidenav-container>
