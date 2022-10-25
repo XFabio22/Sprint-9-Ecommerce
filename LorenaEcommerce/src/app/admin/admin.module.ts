@@ -7,7 +7,7 @@ import { CardProductsComponent } from './components/card-products/card-products.
 import { ListComponent } from './pages/list/list.component';
 import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MaterialModule } from '../material/material.module';
+
 import { AddProductsComponent } from './pages/add-products/add-products.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -27,7 +27,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     AdminRoutingModule,
     FlexLayoutModule,
-    MaterialModule,
     ReactiveFormsModule
   ]
 })

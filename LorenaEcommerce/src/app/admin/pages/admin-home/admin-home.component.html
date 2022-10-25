@@ -1,59 +1,27 @@
-<mat-sidenav-container  class="example-container" autosize>
-    <mat-sidenav  #sidenav mode="push">
-        <mat-toolbar>
-            <span>menu</span>
-            <span class="spacer"></span>
-            <button  mat-icon-button 
-            (click)="sidenav.toggle()">
-                <mat-icon>
-                    close
-                </mat-icon>
-            </button>
-        </mat-toolbar>
-        <mat-nav-list>
-            <a routerLink="/home"
-            mat-list-item
-            (click)="sidenav.toggle()"
-            >
-                <mat-icon mat-list-icon>home</mat-icon>
-                <span>Home</span>
-            </a>
-            <a routerLink="list"
-            mat-list-item
-            (click)="sidenav.toggle()"
-            >
-                <mat-icon mat-list-icon>list</mat-icon>
-                <span>Storage</span>
-            </a>
-            <a routerLink="addProducts"
-            mat-list-item
-            (click)="sidenav.toggle()"
-            >
-                <mat-icon mat-list-icon>add</mat-icon>
-                <span>Añadir Producto</span>
-            </a>
 
-            <a routerLink="./buscar"
-            mat-list-item
-            (click)="sidenav.toggle()"
-            >
-                <mat-icon mat-list-icon>search</mat-icon>
-                <span>Buscar Heroe</span>
-            </a>
-        </mat-nav-list>
-        
-    </mat-sidenav>
+<ng-template #content let-offcanvas>
+	<div class="offcanvas-header">
+		<h4 class="offcanvas-title" id="offcanvas-basic-title">Profile update</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+	</div>
+	<div class="offcanvas-body">
+		<form>
+			<div class="mb-3">
+				<label for="dateOfBirth">Date of birth</label>
+				<div class="input-group">
+				        gola
+					
+				</div>
+			</div>
+		</form>
+		<div class="text-end">
+			<button type="button" class="btn btn-outline-dark" (click)="offcanvas.close('Save click')">Save</button>
+		</div>
+	</div>
+</ng-template>
 
-    <mat-toolbar>
-        <button  mat-icon-button 
-        (click)="sidenav.toggle()">
-            <mat-icon>
-                menu
-            </mat-icon>
-        </button>
-    </mat-toolbar>
-    <div class="container">
-        <router-outlet></router-outlet>
-    </div>
-    
-</mat-sidenav-container>
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo offcanvas</button>
+
+<hr />
+
+<pre>{{ closeResult }}</pre>

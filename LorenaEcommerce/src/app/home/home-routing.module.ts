@@ -8,7 +8,7 @@ const ruta: Routes = [
         path:'',
         children:[
             {
-                path:'home',
+                path:'',
                 component:HomeComponent
             }
         ]
