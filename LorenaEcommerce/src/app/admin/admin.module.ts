@@ -9,6 +9,7 @@ import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../material/material.module';
 import { AddProductsComponent } from './pages/add-products/add-products.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -27,6 +28,7 @@ import { AddProductsComponent } from './pages/add-products/add-products.componen
     AdminRoutingModule,
     FlexLayoutModule,
     MaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }
