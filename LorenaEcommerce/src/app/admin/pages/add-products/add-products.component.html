@@ -1,7 +1,7 @@
-<div class="container mt-5 ">
+<div class="container  ">
     <div class="row">
         <div class="col-10 rounded   ">
-            <h3 class="mt-4">Añada el producto (rellene todo los campos)</h3>
+            <h3>Añada el producto (rellene todo los campos)</h3>
             <form   [formGroup]="addProductsForm" class="needs-validation" novalidate >
                 <div class="form-floating mb-3">
                     <!-- name -->
@@ -94,16 +94,16 @@
                     >
                     <label for="img">Nombre de la imagen</label>
                 </div>
-                    <div class="form-floating">
+                    <div class="form-floating mb-3">
                         <textarea
                         class="form-control"  
                         id="floatingTextarea"
                         formControlName="descripcion"
                         ></textarea>
-                        <label for="floatingTextarea">Descripcion</label>
+                        <label for="floatingTextarea ">Descripcion</label>
                     </div>
                 
-                    <button class="btn CustomColor3" type="submit" >Submit</button>
+                    <button class="btn btn-Primary " type="submit" >Submit</button>
             </form>
 
             

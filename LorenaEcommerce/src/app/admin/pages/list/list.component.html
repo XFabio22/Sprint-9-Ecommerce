@@ -1,12 +1,28 @@
-<!-- <h1>Listado de Prodcutos</h1>
+<h1>Listado de Prodcutos</h1>
 <hr>
+<div class="row">
+    <div *ngFor="let item of productos " class="col-md-4 col-sm-6 ">
 
-<div class="container">
-    <div class="d-flex  felx-row flex-wrap flex-column" >
-            <div
-            *ngFor="let producto of productos"
-            >
-            <app-card-products [prodcuto]="producto" ></app-card-products>
+        <div class="card">
+            <img class="card-img-top" />
+            <!-- [src]="item" 
+            [alt]="item"  -->
+            <div class="card-body">
+                <h5 class="card-title">{{item.name |titlecase}}</h5>
+                <p class="card-text ">Descripcion: {{item.descripcion}}</p>
+                <div class="row">
+                    <div class="col-6">
+                        <P>name: {{item.name}}</P>
+                    </div>
+                    <div class="col-6">
+                        <p>price: {{item.price}}</p>
+                    </div>
+                    <div class="col-6">
+                        <p>discount: {{item.discount}}$</p>
+                    </div>
+                </div>
             </div>
+        </div>
+
     </div>
-</div> -->
+</div>

@@ -47,7 +47,15 @@ export class AddProductsComponent {
   borrar(index:number){
     this.CategoryArr.removeAt(index)//el FormArray solo admite el  removeAt y no el splice 
   }
-  guardar(){
+
+  alertDeleteProduct(){
+    
+  }
+
+  alertAddProduct(){
+
+  }
+  addProduct(){
     if(this.addProductsForm.invalid){
       this.addProductsForm.markAllAsTouched();
       return

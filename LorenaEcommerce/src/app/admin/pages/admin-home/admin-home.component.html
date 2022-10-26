@@ -1,27 +1,35 @@
 
-<ng-template #content let-offcanvas>
+<ng-template #content let-offcanvas class="sidebar">
 	<div class="offcanvas-header">
-		<h4 class="offcanvas-title" id="offcanvas-basic-title">Profile update</h4>
-		<button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+		<h4 class="offcanvas-title" id="offcanvas-basic-title">Admin controls</h4>
+		<button type="button" class="btn-close " aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
 	</div>
 	<div class="offcanvas-body">
-		<form>
-			<div class="mb-3">
-				<label for="dateOfBirth">Date of birth</label>
-				<div class="input-group">
-				        gola
-					
-				</div>
-			</div>
-		</form>
-		<div class="text-end">
-			<button type="button" class="btn btn-outline-dark" (click)="offcanvas.close('Save click')">Save</button>
+		<div class="nav">
+			<ul class="navbar-nav w-100 me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+				  <a class="nav-link " (click)="offcanvas.close('Save click')"  routerLink=""><i class="fa-solid fa-house  p-2"></i>Home</a>
+				</li>
+				<hr>
+				<li class="nav-item">
+				  <a class="nav-link" (click)="offcanvas.close('Save click')" routerLink="./list"> <i class="fa-solid fa-list-ul p-2"></i>Listado de productos</a>
+				</li>
+				<hr>
+				<li class="nav-item">
+					<a class="nav-link" (click)="offcanvas.close('Save click')" routerLink="./addProducts"><i class="fa-solid fa-plus p-2"></i>Agregar</a>
+				</li>
+				<hr>
+			
+			</ul>
 		</div>
+		<!-- <div class="text-end">
+			<button type="button" class="btn btn-outline-dark" (click)="offcanvas.close('Save click')">Save</button>
+		</div>  -->
 	</div>
 </ng-template>
 
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo offcanvas</button>
+<button class="btn btn-outline-primary mt-3 ms-2" (click)="open(content)"><i class="fa-solid fa-bars"></i></button>
 
 <hr />
 
-<pre>{{ closeResult }}</pre>
+<router-outlet></router-outlet>
