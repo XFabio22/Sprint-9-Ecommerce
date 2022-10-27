@@ -1,24 +1,27 @@
 <h1>Listado de Prodcutos</h1>
 <hr>
-<div class="row">
+<div class="row  ms-3">
     <div *ngFor="let item of productos " class="col-md-4 col-sm-6 ">
 
-        <div class="card">
+        <div class="card mb-4">
             <img class="card-img-top" />
             <!-- [src]="item" 
             [alt]="item"  -->
             <div class="card-body">
                 <h5 class="card-title">{{item.name |titlecase}}</h5>
-                <p class="card-text ">Descripcion: {{item.descripcion}}</p>
+                
+                <div class="col-6">
+                    <p>price: {{item.price}}</p>
+                </div>
                 <div class="row">
-                    <div class="col-6">
-                        <P>name: {{item.name}}</P>
-                    </div>
-                    <div class="col-6">
-                        <p>price: {{item.price}}</p>
+                    <div class="col-12 mb-3">
+                       <p class="card-text ">Descripcion: {{item.descripcion}}</p>
                     </div>
                     <div class="col-6">
                         <p>discount: {{item.discount}}$</p>
+                    </div>
+                    <div class="col-6">
+                        <p>Categorias: {{item.category}}</p>
                     </div>
                 </div>
             </div>

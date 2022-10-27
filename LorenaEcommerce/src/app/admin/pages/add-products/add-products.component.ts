@@ -1,3 +1,4 @@
+import { productsService } from './../../services/products.service';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,14 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddProductsComponent {
   
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder,private productsService:productsService) { }
   
   addProductsForm:FormGroup =this.fb.group({
     name:['',[Validators.required, Validators.minLength(3)]],
     img:['',Validators.required],
     price:['',[Validators.required,Validators.minLength(1)]],
     discount:[''],
-    descripcion:[''],
+    descripcion:['',[Validators.required,Validators.minLength(10)]],
     category:this.fb.array([
       ['Bizcocho de manzana']
     ],Validators.required)
@@ -56,10 +57,22 @@ export class AddProductsComponent {
 
   }
   addProduct(){
+    const{name,img,price,discount,descripcion,category} = this.addProductsForm.value
     if(this.addProductsForm.invalid){
-      this.addProductsForm.markAllAsTouched();
-      return
+      return  this.addProductsForm.markAllAsTouched();
     }
-    console.log(this.addProductsForm);
+    else if(this.addProductsForm.valid){
+    
+      this.productsService.addProducts(name,img,price,discount,descripcion,category)
+      .subscribe(ok =>{
+        if(ok){
+          console.log('El producto se anadio correctamente');
+          
+        }
+      })
+      // this.addProductsForm.reset({name:'',img:'',price:0,discount:0,descripcion:'',category:''})
+      console.log(this.addProductsForm);
+    }
+    
   }
 }

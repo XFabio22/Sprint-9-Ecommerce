@@ -9,7 +9,7 @@
                     type="text" 
                     class="form-control"
                     placeholder="Name"
-                    formControlName="name"
+                    formControlName="name" 
                     
                     required
                     id="nameID"
@@ -58,12 +58,11 @@
                 <!-- Precio -->
                 <div class="form-floating mb-3">
                     <input
-                    type="number"
+                    type="text"
                     class="form-control"
                     id="precio"
                     placeholder="price"
                     formControlName="price"
-                    
                     required
                     >
                     <label for="precio">Precio</label>
@@ -71,7 +70,7 @@
                 <!-- Descuento -->
                 <div class="form-floating mb-3">
                     <input
-                    type="number"
+                    type="text"
                     class="form-control"
                     id="Descuento"
                     placeholder="discount"
@@ -96,6 +95,7 @@
                 </div>
                     <div class="form-floating mb-3">
                         <textarea
+                        type="text"
                         class="form-control"  
                         id="floatingTextarea"
                         formControlName="descripcion"
@@ -103,8 +103,11 @@
                         <label for="floatingTextarea ">Descripcion</label>
                     </div>
                 
-                    <button class="btn btn-Primary " type="submit" >Submit</button>
+                    <button class="btn btn-Primary " (click)="addProduct()"   type="submit" >Submit</button>
+
+                    <pre>{{addProductsForm.value| json}}</pre>
             </form>
+
 
             
         </div>
