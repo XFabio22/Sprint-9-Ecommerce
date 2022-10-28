@@ -22,7 +22,7 @@ export class productsService {
         return  this.http.get<ProductsResponse>(`${url}/producto/product`)
     }
 
-    addProducts(name:string ,img:string,price:string,discount:string,descripcion:string,category:Array<string>):Observable<AddProduct>{
+    addProducts(name:string ,img:string,price:number,discount:number,descripcion:string,category:Array<string>):Observable<AddProduct>{
         const url = `${this.Base_UrL}/producto/newProduct`
         const body = {name,category,price,discount,img,descripcion}
 

@@ -10,7 +10,6 @@
                     class="form-control"
                     placeholder="Name"
                     formControlName="name" 
-                    
                     required
                     id="nameID"
                     >
@@ -28,26 +27,34 @@
                         (keyup.enter)="agregarFavorito()"
                         required
                         >   
-                    <button 
-                        class="btn btn-outline-primary" 
-                        (click)="agregarFavorito()"
-                        type="button">
-                        add
-                    </button>
+                        <button class="icon-btn add-btn" (click)="agregarFavorito()">
+                            <div class="add-icon"></div>
+                            <div class="btn-txt">Add </div>
+                        </button>
                 </div>
                 <div class="mb-3 row">
-                    <label class="col-2 col-form-label" >Categorias Añadidas</label>
+                    <label class="col-2 col-form-label" >Categorias Añadidas:</label>
                     <div class="col-sm-10" formArrayName="category">
                         <div 
                         class="input-group mb-1"
                         *ngFor=" let category of CategoryArr.controls; let i = index"
                         > 
-                            <input  class="form-control mb-1"[formControlName]="i" >
-                                <button class="btn btn-outline-danger"
+                            <input 
+                            type="text"
+                            class="form-control"
+                            [formControlName]="i" >
+                            
+                                <button class="noselect button" (click)="borrar(i)" >
+                                    <span class="text">Delete</span>
+                                    <span class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg>
+                                    </span>
+                                </button>
+                                <!-- <button class="btn btn-outline-danger"
                                     type="button"
                                     (click)="borrar(i)" >
                                     delete
-                                </button>
+                                </button> -->
                         </div>
                     </div>
                 </div>
@@ -58,7 +65,7 @@
                 <!-- Precio -->
                 <div class="form-floating mb-3">
                     <input
-                    type="text"
+                    type="number"
                     class="form-control"
                     id="precio"
                     placeholder="price"
@@ -70,7 +77,7 @@
                 <!-- Descuento -->
                 <div class="form-floating mb-3">
                     <input
-                    type="text"
+                    type="number"
                     class="form-control"
                     id="Descuento"
                     placeholder="discount"
@@ -102,8 +109,18 @@
                         ></textarea>
                         <label for="floatingTextarea ">Descripcion</label>
                     </div>
-                
-                    <button class="btn btn-Primary " (click)="addProduct()"   type="submit" >Submit</button>
+                    <button class="buttonSend" (click)="addProduct()">
+                        <div class="svg-wrapper-1">
+                          <div class="svg-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                              <path fill="none" d="M0 0h24v24H0z"></path>
+                              <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <span>Submit</span>
+                      </button>
+                   
 
                     <pre>{{addProductsForm.value| json}}</pre>
             </form>

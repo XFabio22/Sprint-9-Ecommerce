@@ -14,8 +14,8 @@ export class AddProductsComponent {
   addProductsForm:FormGroup =this.fb.group({
     name:['',[Validators.required, Validators.minLength(3)]],
     img:['',Validators.required],
-    price:['',[Validators.required,Validators.minLength(1)]],
-    discount:[''],
+    price:[,[Validators.required,Validators.minLength(1)]],
+    discount:[],
     descripcion:['',[Validators.required,Validators.minLength(10)]],
     category:this.fb.array([
       ['Bizcocho de manzana']
