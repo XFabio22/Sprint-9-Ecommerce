@@ -17,8 +17,9 @@
                 </div>
 
                 <!-- Categoria -->
+               
                 <div class="input-group   mb-3">
-                    <input
+                    <!-- <input
                         type="text"
                         class="form-control"
                         placeholder="Agregar Categoria" 
@@ -26,7 +27,14 @@
                         [formControl]="newCategory" 
                         (keyup.enter)="agregarFavorito()"
                         required
-                        >   
+
+                        >    -->
+
+                        <select [formControl]="newCategory"   class="form-select" aria-label="Default select example" required>
+                            <option  value="Personalizados">Personalizados</option>
+                            <option  value="Celebrar">Celebrar</option>
+                            <option  value="Formales">Formales</option>
+                        </select>
                         <button class="icon-btn add-btn" (click)="agregarFavorito()">
                             <div class="add-icon"></div>
                             <div class="btn-txt">Add </div>

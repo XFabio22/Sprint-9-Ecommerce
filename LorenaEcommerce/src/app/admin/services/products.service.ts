@@ -21,6 +21,11 @@ export class productsService {
         const url = `${this.Base_UrL}`;
         return  this.http.get<ProductsResponse>(`${url}/producto/product`)
     }
+    getListProdcutsCategory(category:string):Observable<any>{
+        const url = `${this.Base_UrL}/producto/product/category`;
+        const body = {category}
+        return  this.http.post<any>(url,body)
+    }
 
     addProducts(name:string ,img:string,price:number,discount:number,descripcion:string,category:Array<string>):Observable<AddProduct>{
         const url = `${this.Base_UrL}/producto/newProduct`
