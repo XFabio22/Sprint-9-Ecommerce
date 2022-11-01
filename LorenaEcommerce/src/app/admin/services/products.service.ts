@@ -22,7 +22,7 @@ export class productsService {
         return  this.http.get<ProductsResponse>(`${url}/producto/product`)
     }
     getListProdcutsCategory(category:string):Observable<any>{
-        const url = `${this.Base_UrL}/producto/product/category`;
+        const url = `${this.Base_UrL}/producto/category`;
         const body = {category}
         return  this.http.post<any>(url,body)
     }
@@ -43,6 +43,12 @@ export class productsService {
         //   )
     }
 
+
+    deleteProdcuts(_id:string):Observable<any>{ 
+        const url = `${this.Base_UrL}/producto/delete`
+        const body ={_id}
+        return this.http.post<any>(url,body)
+    }
 
 
     

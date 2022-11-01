@@ -32,13 +32,14 @@ export class AddProductsComponent {
   // siElCampoNoesValido(obj:string){
   //   return this.addProductsForm.controls[obj].invalid && this.addProductsForm.controls[obj].touched
   // }
+  
 
 
   agregarFavorito(){
     if(this.newCategory.invalid){return};
 
     this.CategoryArr.push(this.fb.control(
-       this.newCategory.value,Validators.required
+      this.newCategory.value,Validators.required
     ));
 
     this.newCategory.reset();

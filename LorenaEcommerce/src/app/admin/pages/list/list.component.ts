@@ -12,14 +12,21 @@ import { productsService } from '../../services/products.service';
 export class ListComponent implements OnInit {
 
   constructor( private productsService:productsService) { }
-  
+
   productos:DBProduct[]=[]
   ngOnInit(): void {
     this.productsService.getListProdcuts()
     .subscribe((res:ProductsResponse)=>{
       this.productos.push(...res.dbProduct);
     });
-    
-    
+  }
+
+  productDelete(_id:string){
+      this.productsService.deleteProdcuts(_id)
+      .subscribe((res:ProductsResponse)=>{
+        console.log(res);
+        
+      })
+      
   }
 }

@@ -1,26 +1,36 @@
 
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-0">
-    <a href="index.html" class="navbar-brand d-block d-lg-none">
-        <h1 class="m-0 text-uppercase text-white"><i class="fa fa-birthday-cake fs-1 text-Primary me-3"></i>Tartas Lorena</h1>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto mx-lg-auto py-0">
-            <a routerLink="" class="nav-item nav-link ">Home</a>
-            <a routerLink="/Menu&Pricing" class="nav-item nav-link">Menu & Pricing</a>
-      
-            <a href="#" class="nav-item nav-link">Contact Us</a>
-
-            <ul class="navbar-nav">
-          
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark    shadow-sm ">
+    <div class="container-fluid">
+        <a href="#" class="navbar-brand d-block d-lg-none">
+            <h1 class="m-0 text-uppercase text-white"><i class="fa fa-birthday-cake fs-1 text-Primary me-3"></i>Tartas Lorena</h1>
+        </a>
+        <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed" >
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link  " routerLink="/admin">admin</a>
+                <a routerLink="" class="nav-item nav-link ">Home</a>
                 </li>
-                
-                <!-- Poner el carrito y el usuario -->
+                <li class="nav-item">
+                <a routerLink="/Menu&Pricing" class="nav-item nav-link">Menu & Pricing</a>
+                </li>
+            
+                <li class="nav-item">
+                <a class="nav-link nav-item  " routerLink="/admin">admin</a>
+                </li>
             </ul>
+            <div class="d-flex  text-uppercase text-white ">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link  nav-item  " routerLink="/auth/login"><i class="fa-regular fa-user"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  nav-item  " routerLink="/auth/login"><i class="fas fa-shopping-cart me-1"></i></a>
+                    </li>
+                </ul>
+            </div>
+            
         </div>
     </div>
 </nav>
