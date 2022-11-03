@@ -1,0 +1,108 @@
+<button class="noselect  button2 "  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <!-- (click)="borrar(i)"   data-bs-toggle="modal" data-bs-target="#exampleModal"  -->
+    <span class="text">Edit</span>
+    <span class="icon text-white">
+        <i class="fa-solid fa-file-pen"></i>
+    </span>
+</button>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form   [formGroup]="EditForm" class="needs-validation" novalidate >
+                <div class="form-floating mb-3">
+                    <!-- name -->
+                    <input 
+                    type="text" 
+                    class="form-control"
+                    placeholder="Name"
+                    formControlName="name" 
+                    [ngModel]="producto.name"
+                    required
+                    id="nameID"
+                    >
+                    <label for="nameID">Nombre de el producto</label>
+                </div>
+            
+                <!-- Precio -->
+                <div class="form-floating mb-3">
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="precio"
+                    placeholder="price"
+                    formControlName="price"
+                    [ngModel]="producto.price"
+                    required
+                    >
+                    <label for="precio">Precio</label>
+                </div>
+                <!-- Descuento -->
+                <div class="form-floating mb-3">
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="Descuento"
+                    placeholder="discount"
+                    formControlName="discount"
+                    [ngModel]="producto.discount"
+                    required
+                    >
+                    <label for="Descuento">Descuento</label>
+                </div>
+                <!-- Img -->
+                <div class="form-floating mb-3">
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="img"
+                    placeholder="img"
+                    formControlName="img"
+                    [ngModel]="producto.img"
+                    required
+                    >
+                    <label for="img">Nombre de la imagen</label>
+                </div>
+                    <div class="form-floating mb-3">
+                        <textarea
+                        type="text"
+                        class="form-control"  
+                        id="floatingTextarea"
+                        formControlName="descripcion"
+                        [ngModel]="producto.descripcion"
+                        ></textarea>
+                        <label for="floatingTextarea ">Descripcion</label>
+                    </div>
+                    
+
+                    <!-- <button class="buttonSend" >
+                        <div class="svg-wrapper-1">
+                            <div class="svg-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <span>Submit</span>
+                    </button> -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="editProducto(producto._id)" >Submit</button>
+                </div>
+
+
+            
+            </form>
+        </div>
+        
+    </div>
+    </div>
+</div>

@@ -16,18 +16,18 @@ const ruta: Routes = [
                 component:HomeComponent
             },
             {
-                path:'Menu&Pricing',
+                path:'pasteles',
                 component:MenuYPreciosComponent
             },
             {
-                path:'Menu&Pricing/customs',
+                path:'pasteles/customs',
                 component:PastelesPersonalizadosComponent
             },{
-                path:'Menu&Pricing/formales',
+                path:'pasteles/formales',
                 component:PastelesFormalesComponent
             },
             {
-                path:'Menu&Pricing/Celecrar',
+                path:'pasteles/Celecrar',
                 component:PastelesCelebrarComponent
             }
         ]

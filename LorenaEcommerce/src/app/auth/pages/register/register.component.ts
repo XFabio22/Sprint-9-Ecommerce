@@ -1,7 +1,8 @@
 import { authService } from './../../services/auth.service';
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,Validators  } from '@angular/forms';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-register',
@@ -25,7 +26,7 @@ export class RegisterComponent implements OnInit {
 
   get nameMsgErr():string {
     const errors = this.registerForm.get('name')?.errors;
-
+ 
     if(errors?.['required']){
       return 'Porfavor introdusca un nombre'
     } else if (errors?.['minlength']) {
@@ -70,9 +71,11 @@ export class RegisterComponent implements OnInit {
     }else if(this.registerForm.valid) {
       this.authService.register(name,email,password)
       .subscribe(ok =>{
-        if(ok){
-          console.log('hola');
-          
+        console.log(ok);
+        if(ok === true){
+          ////
+        }else {
+          Swal.fire('Error',ok,'error');
         }
       })
       this.registerForm.reset({ password: '', email: '', name: '' })

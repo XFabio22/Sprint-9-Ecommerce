@@ -6,6 +6,7 @@ import { MenuYPreciosComponent } from './pages/menu-yprecios/menu-yprecios.compo
 import { PastelesPersonalizadosComponent } from './pages/pasteles-personalizados/pasteles-personalizados.component';
 import { PastelesFormalesComponent } from './pages/pasteles-formales/pasteles-formales.component';
 import { PastelesCelebrarComponent } from './pages/pasteles-celebrar/pasteles-celebrar.component';
+import { BuyFormComponent } from './pages/buy-form/buy-form.component';
 
 
 
@@ -18,6 +19,7 @@ import { PastelesCelebrarComponent } from './pages/pasteles-celebrar/pasteles-ce
     PastelesPersonalizadosComponent,
     PastelesFormalesComponent,
     PastelesCelebrarComponent,
+    BuyFormComponent,
 
   ],
   imports: [

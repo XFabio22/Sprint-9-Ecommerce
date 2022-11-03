@@ -8,7 +8,7 @@
                 <img src="../../../../assets/imgpastel/1.jpg" alt="" class="card-img">
                 <div class="card-body">
                     <div class="card-info">
-                        <h5 class="card-title">{{item.name |titlecase}}</h5>
+                        <h5 class="card-title">{{item.name}}</h5>
                 
                             <div class="col-6">
                                 <p>price: {{item.price}}</p>
@@ -24,33 +24,18 @@
                                     <p>Categorias: {{item.category}}</p>
                                 </div>
                             </div>
-                            <button class="noselect button" (click)="productDelete(item._id)">
-                                <!-- (click)="borrar(i)"   data-bs-toggle="modal" data-bs-target="#exampleModal"  -->
-                                <span class="text">Delete</span>
-                                <span class="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg>
-                                </span>
-                            </button>
 
-                             <!-- Modal  de ADVERTENCIA-->
-                        <!-- <div class="modal  fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Esta seguro que quiere eliminar esa categoria</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body d-flex justify-content-around">
-                                        <button type="button" class="btn btn-Primary" data-bs-dismiss="modal">no</button>
-                                        <button type="button" class="btn btn-danger "  data-bs-dismiss="modal" >Si</button>
-                                    </div>
-                                    
-                                
-                                    
-                                </div>
+                            <div class="">
+                                <button class="noselect   button" (click)="productDelete(item._id)">
+
+                                    <span class="text">Delete</span>
+                                    <span class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg>
+                                    </span>
+                                </button>
+                                <app-form-edit [producto]="item"></app-form-edit>
                             </div>
-                        </div> -->
-                
+                                
                 </div>
             </div>
     

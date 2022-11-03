@@ -18,6 +18,23 @@ export class authService {
     return {...this._user!}
   }
   login(email:string,password:string){
+    const url = `${this.Auth_URL}/auth`
+    const body = {email , password}
+    return this.http.post<AuthResponse >(url,body)
+    .pipe(
+        tap(res =>{
+            if(res.ok){
+                localStorage.setItem('token',res.token!)
+                this._user ={
+                    name : res.name!,
+                    uid: res.uid!
+                }
+            }
+        }),
+        map(res => res.ok),
+        catchError(err => of(err.error.msg))
+
+    )
 
   }
 
@@ -37,7 +54,7 @@ export class authService {
           }
       } ),
       map(res => res.ok),
-      catchError(err => of(false))
+        catchError(err => of(err.error.msg))
     )
 
 }

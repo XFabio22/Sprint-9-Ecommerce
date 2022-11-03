@@ -10,6 +10,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AddProductsComponent } from './pages/add-products/add-products.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormEditComponent } from './components/form-edit/form-edit.component';
 
 
 
@@ -21,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ListComponent,
     AdminHomeComponent,
     AddProductsComponent,
+    FormEditComponent,
     
   ],
   imports: [

@@ -1,6 +1,7 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { authService } from '../../services/auth.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-login',
@@ -51,13 +52,17 @@ export class LoginComponent implements OnInit {
       return this.loginForm.markAllAsTouched()
     }else if(this.loginForm.valid) {
       this.authService.login(email,password)
-      
-      // .subscribe(ok =>{
-      //   if(ok){
-      //     console.log('hola');
-          
-      }
-      // })
+      .subscribe(ok =>{
+        // console.log(ok);
+        if(ok === true){
+          ////
+        }else {
+          Swal.fire('Error',ok,'error');
+        }
+        
+      })
+    }
+
       this.loginForm.reset({ password: '', email: ''})
 }
   ngOnInit(): void {
