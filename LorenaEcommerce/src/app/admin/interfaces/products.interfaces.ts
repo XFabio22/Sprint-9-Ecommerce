@@ -5,7 +5,7 @@ export interface ProductsResponse {
     export interface DBProduct {
     __v:         number;
     _id:         string;
-    category:    string[];
+    category:    string;
     descripcion: string;
     discount?:   number;
     img:         string;
@@ -15,7 +15,7 @@ export interface ProductsResponse {
 
 
 export interface AddProduct {
-    category:    string[];
+    category:    string;
     descripcion: string;
     discount:    string;
     img:         string;

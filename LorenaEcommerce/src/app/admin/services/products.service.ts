@@ -27,7 +27,7 @@ export class productsService {
         return  this.http.post<any>(url,body)
     }
 
-    addProducts(name:string ,img:string,price:number,discount:number,descripcion:string,category:Array<string>):Observable<AddProduct>{
+    addProducts(name:string ,img:string,price:number,discount:number,descripcion:string,category:string):Observable<AddProduct>{
         const url = `${this.Base_UrL}/producto/newProduct`
         const body = {name,category,price,discount,img,descripcion}
 
@@ -50,10 +50,15 @@ export class productsService {
         return this.http.post<any>(url,body)
     }
 
-    edittProducts(_id:string, name:string ,img:string,price:number,discount:number,descripcion:string,category:Array<string>) :Observable<any>{
-        const url = `${this.Base_UrL}/producto/${_id}` 
+    edittProducts(id:string, name:string ,img:string,price:number,discount:number,descripcion:string,category:string) :Observable<any>{
+        const url = `${this.Base_UrL}/producto/edit/${id}` 
         const body = {name,category,price,discount,img,descripcion}
         return this.http.put<any>(url,body)
+    }
+
+    getDetailProducts(id:string){
+        const url = `${this.Base_UrL}/producto/${id}`
+        return this.http.get<any>(url)
     }
 
     

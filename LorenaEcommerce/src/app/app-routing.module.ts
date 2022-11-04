@@ -4,6 +4,10 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
   {
+    path:'cart',
+    component:ShoppingCartComponent
+  },
+  {
     path:'auth',
     loadChildren:()=> import ('./auth/auth.module').then(m => m.AuthModule)
   },

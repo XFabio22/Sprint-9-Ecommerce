@@ -17,49 +17,45 @@ export class AddProductsComponent  {
     price:[,[Validators.required,Validators.minLength(1)]],
     discount:[],
     descripcion:['',[Validators.required,Validators.minLength(10)]],
-    category:this.fb.array([
-      
-    ],Validators.required)
-  })
+    category:['',Validators.required]
+  })  
 
-  newCategory:FormControl =this.fb.control('',Validators.required)
+  // newCategory:FormControl =this.fb.control('',Validators.required)
 
 
-  get CategoryArr(){ //con form reactivos esta es mejor forma de tomar lo valores y sin errores , as FormArray: esto se le dice parar ayudar a ts y quitar el error 
-    return this.addProductsForm.get('category') as FormArray;
-  }
-  // siElCampoNoesValido(obj:string){
-  //   return this.addProductsForm.controls[obj].invalid && this.addProductsForm.controls[obj].touched
+  // get CategoryArr(){ //con form reactivos esta es mejor forma de tomar lo valores y sin errores , as FormArray: esto se le dice parar ayudar a ts y quitar el error 
+  //   return this.addProductsForm.get('category') as FormArray;
   // }
+  // // siElCampoNoesValido(obj:string){
+  // //   return this.addProductsForm.controls[obj].invalid && this.addProductsForm.controls[obj].touched
+  // // }
   
 
 
-  agregarFavorito(){
-    if(this.newCategory.invalid){return};
+  // agregarFavorito(){
+  //   if(this.newCategory.invalid){return};
 
-    this.CategoryArr.push(this.fb.control(
-      this.newCategory.value,Validators.required
-    ));
+  //   this.CategoryArr.push(this.fb.control(
+  //     this.newCategory.value,Validators.required
+  //   ));
 
-    this.newCategory.reset();
-  }
+  //   this.newCategory.reset();
+  // }
 
 
-  borrar(index:number){
-    this.CategoryArr.removeAt(index)//el FormArray solo admite el  removeAt y no el splice 
-  }
+  // borrar(index:number){
+  //   this.CategoryArr.removeAt(index)//el FormArray solo admite el  removeAt y no el splice 
+  // }
 
-  alertDeleteProduct(){
-    
-  }
 
-  alertAddProduct(){
 
-  }
   addProduct(){
     const{name,img,price,discount,descripcion,category} = this.addProductsForm.value
     if(this.addProductsForm.invalid){
+      console.log('error');
       return  this.addProductsForm.markAllAsTouched();
+      
+      
     }
     else if(this.addProductsForm.valid){
     

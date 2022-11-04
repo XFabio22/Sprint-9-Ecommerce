@@ -36,8 +36,6 @@ export class ListComponent implements OnInit {
       if (result.isConfirmed) {
         this.productsService.deleteProdcuts(_id)
         .subscribe((res:ProductsResponse)=>{
-        console.log(res);
-        
         })
         swalWithBootstrapButtons.fire(
           'Deleted!',
@@ -57,11 +55,6 @@ export class ListComponent implements OnInit {
       }
     })
   }
-
-  editProducts(_id:string){
-
-  }
-
 
 
 

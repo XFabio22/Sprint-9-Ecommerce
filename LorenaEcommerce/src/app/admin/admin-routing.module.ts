@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListComponent } from './pages/list/list.component';
 import { AddProductsComponent } from './pages/add-products/add-products.component';
+import { FormEditComponent } from './components/form-edit/form-edit.component';
 
 const rutasADMIN: Routes = [
     {
@@ -18,6 +19,10 @@ const rutasADMIN: Routes = [
             {
                 path:'addProducts',
                 component:AddProductsComponent
+            },
+            {
+                path:'list/edit/:_id',
+                component:FormEditComponent
             },
             {
                 path:'**',
