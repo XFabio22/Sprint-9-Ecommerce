@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { authService } from '../../services/auth.service';
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
     password : ['',[Validators.required,Validators.minLength(6)]]
   })
 
-  constructor(private authService:authService,private fb:FormBuilder) { }
+  constructor(private authService:authService,private fb:FormBuilder ,private router:Router) { }
   get emailMsgErr():string {
     const errors = this.loginForm.get('email')?.errors;
 
@@ -55,7 +56,7 @@ export class LoginComponent implements OnInit {
       .subscribe(ok =>{
         // console.log(ok);
         if(ok === true){
-          ////
+          this.router.navigate(['./home'])
         }else {
           Swal.fire('Error',ok,'error');
         }

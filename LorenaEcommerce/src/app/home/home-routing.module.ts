@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuYPreciosComponent } from './pages/menu-yprecios/menu-yprecios.component';
 import { PastelesPersonalizadosComponent } from './pages/pasteles-personalizados/pasteles-personalizados.component';
+import { BuyFormComponent } from './pages/buy-form/buy-form.component';
 
 
 const ruta: Routes = [
@@ -29,6 +30,11 @@ const ruta: Routes = [
             {
                 path:'pasteles/Celecrar',
                 component:PastelesCelebrarComponent
+            }
+            ,
+            {
+                path:'pedido/:_id',
+                component:BuyFormComponent
             }
         ]
     }

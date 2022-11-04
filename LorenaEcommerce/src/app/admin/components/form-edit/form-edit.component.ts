@@ -2,8 +2,10 @@ import { productsService } from './../../services/products.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DBProduct } from '../../interfaces/products.interfaces';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap, tap } from 'rxjs';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-form-edit',
@@ -12,7 +14,11 @@ import { switchMap, tap } from 'rxjs';
 })
 export class FormEditComponent implements OnInit {
 
-  constructor(private fb:FormBuilder,private productsService:productsService ,private activatedRoute:ActivatedRoute) { }
+  constructor(private fb:FormBuilder,
+    private productsService:productsService ,
+    private activatedRoute:ActivatedRoute,
+    private router:Router
+    ) { }
 
   producto! : DBProduct 
 
@@ -48,9 +54,13 @@ editProducto(_id:string) {
   }
 
       this.productsService.edittProducts(_id,name,img,price,discount,descripcion,category)
-      .subscribe(message =>{
-        
-          console.log(message);
+      .subscribe(res =>{
+        if(res.ok){
+          Swal.fire('Saved!', res.mgs, 'success')
+          this.router.navigate(['admin/list'])
+        }else{
+          Swal.fire('Error',res.mgs,'error');
+        }
       })
       // this.addProductsForm.reset({name:'',img:'',price:0,discount:0,descripcion:'',category:''})
       console.log(this.EditForm);

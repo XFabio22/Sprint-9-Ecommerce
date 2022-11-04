@@ -32,15 +32,6 @@ export class productsService {
         const body = {name,category,price,discount,img,descripcion}
 
         return this.http.post<AddProduct>(url,body)
-        // .pipe(
-        //     tap(res =>{
-        //         if(res.name){
-        //           console.log("todo salio bien");
-        //         }
-        //     } ),
-        //     map(res => res.name),
-        //     catchError(err => of(false))
-        //   )
     }
 
 

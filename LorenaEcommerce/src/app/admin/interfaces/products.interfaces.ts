@@ -23,4 +23,5 @@ export interface AddProduct {
     ok:          boolean;
     price:       string;
     uid:         string;
+    msg:         string
 }
