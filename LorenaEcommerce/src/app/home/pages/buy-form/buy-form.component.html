@@ -1,0 +1,128 @@
+<div class="container mt-4  ">
+    <div class="row"> 
+        <div class="col-5">
+            <img [src]="item| imagen"  class="img-fluid  w-100" alt="...">
+        </div>
+        <div class="col-6 rounded  ">
+            <h3>{{item.name}}</h3>
+            <p>{{item.descripcion}}</p>
+            <hr class="text-danger">
+            <form  [formGroup]="buyForm"  class="needs-validation" novalidate >
+                <div *ngIf="item.category === 'Personalizados'">
+                    <p class="text-danger" >Si desea el mismo pastel que el de la foto ESCRIBA EL MISMO NOMBRE EN EL CAMPO DE TEMATICA </p>
+                    <div class="form-floating mb-3">
+                        <!-- TEMÁTICA -->
+                        <input 
+                        type="text" 
+                        class="form-control"
+                    
+                        formControlName="tematica" 
+                        required
+                        id="TEMÁTICA"
+                        >
+                        <label for="TEMÁTICA">ESCRIBE AQUÍ LA TEMÁTICA</label>
+                    </div>
+                </div>
+
+                
+                <div class="form-floating mb-3">
+                    <!-- nameCumpleanero -->
+                    <input 
+                    type="text" 
+                    class="form-control"
+                    formControlName="nameCumpleanero" 
+                    required
+                    id="nameCumpleanero"
+                    >
+                    <label for="nameCumpleanero">ESCRIBE AQUÍ EL NOMBRE DE EL CUMPLEAÑER@</label>
+                </div>
+                <!-- Sabores -->
+
+                <label for="precio">Sabores</label>
+                <div class="input-group   mb-3">
+                        <select formControlName="sabores"   class="form-select" aria-label="Default select example" required>
+                            <option  value="Vainilla y chocolate ">Vainilla y chocolate </option>
+                            <option  value="Chocolate con relleno de fresas">Chocolate con relleno de mermelada de fresas</option>
+                            <option  value="Formales">Tres leches</option>
+                        </select>
+                </div>
+                <!-- Tamaños -->
+                <label for="precio">Tamaños</label>
+                <div class="input-group   mb-3">
+                        <select formControlName="zise"   class="form-select" aria-label="Default select example" required>
+                            <option  value="Pequeño">Pequeño 10/12 porciones</option>
+                            <option  value="Medianos">Medianos 18/20 porciones</option>
+                            <option  value="Grandes">Grandes 25/33 porciones</option>
+                        </select>
+                </div>  
+            
+                <!-- Data -->
+                <label for="precio">FECHA DE RECOGIDA/ENVÍO</label>
+                <form class="row row-cols-sm-auto mb-3">
+                    <div class="col-12">
+                        <div class="input-group">
+                            <input
+                                class="form-control"
+                                placeholder="yyyy-mm-dd"
+                                name="dp"
+                                [(ngModel)]="model"
+                                ngbDatepicker
+                                #d="ngbDatepicker"
+                                formControlName="fechaDeRecogida"
+                            />
+                            
+                            <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()"  type="button"></button>
+                        </div>
+                    </div>
+                </form>
+                <!-- Hora -->
+
+                <label for="precio">HORA DE RECOGIDA (SOLO PARA RECOGIDA EN TIENDA)</label>
+                <div class="input-group   mb-3">
+                        <select formControlName="horaDeRecogida"      class="form-select" aria-label="Default select example" required>
+                            <option  value="11:00 AM">11:00 AM</option>
+                            <option  value="12:00 AM">12:00 AM</option>
+                            <option  value="01:00 PM">01:00 PM</option>
+                            <option  value="02:00 PM">02:00 PM</option>
+                            <option  value="03:00 PM">03:00 PM</option>
+                            <option  value="04:00 PM">04:00 PM</option>
+                        </select>
+                </div>  
+
+
+                <label for="cantidad">Cantidad</label>
+                <div class="input-group w-25">
+                    
+                <button 
+                class="btn ms-2 btn-warning"    
+                type="button" 
+                (click)="restar(buyForm.value.cantidad ,'cantidad')"
+                >
+                -
+            </button>
+            
+            <input 
+                type="number" 
+                class="form-control"
+                [(ngModel)]="numCantidad" 
+                formControlName="cantidad"
+                min="0"
+            >
+            <button
+                class="btn  btn-warning" 
+                type="button"
+                (click)="sumar('cantidad')"
+                >
+                +
+            </button>
+                </div>
+
+                <div class="d-grid gap-2 mt-3">  
+                    <button class="buttonEspecial " routerLink="/cart"> 
+                        agregar al carrito
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

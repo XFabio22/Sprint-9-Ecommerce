@@ -5,7 +5,8 @@
         <div *ngFor="let item of productos;let i = index" class="col-md-3 col-sm-6 ">
     
             <div class="card mb-4">
-                <img src="../../../../assets/imgpastel/1.jpg" alt="" class="card-img">
+                <img [src]="item | imagen"  alt="" class="card-img">
+                <!-- src="../../../../assets/imgpastel/lilac roses.jpg"  -->
                 <div class="card-body">
                     <div class="card-info">
                         <h5 class="card-title">{{item.name}}</h5>

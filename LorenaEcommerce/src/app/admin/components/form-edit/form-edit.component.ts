@@ -23,9 +23,8 @@ export class FormEditComponent implements OnInit {
   producto! : DBProduct 
 
 ngOnInit(): void {
-  console.log(this.producto);
      // switchMap Recibe un observable y regresa otro observable
-     this.activatedRoute.params
+      this.activatedRoute.params
      .pipe( //pipe sirve para declarar cualquier cantidad de operadores que trabajaran con el producto de este Observable
       switchMap(({_id} ) =>
     this.productsService.getDetailProducts(_id))

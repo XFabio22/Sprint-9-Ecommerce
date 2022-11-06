@@ -33,7 +33,7 @@ const ruta: Routes = [
             }
             ,
             {
-                path:'pedido/:_id',
+                path:'buyForm/:_id',
                 component:BuyFormComponent
             }
         ]

@@ -7,6 +7,11 @@ import { PastelesPersonalizadosComponent } from './pages/pasteles-personalizados
 import { PastelesFormalesComponent } from './pages/pasteles-formales/pasteles-formales.component';
 import { PastelesCelebrarComponent } from './pages/pasteles-celebrar/pasteles-celebrar.component';
 import { BuyFormComponent } from './pages/buy-form/buy-form.component';
+import { imgPipe2 } from './pipes/img.pipe2';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 
 
@@ -20,11 +25,15 @@ import { BuyFormComponent } from './pages/buy-form/buy-form.component';
     PastelesFormalesComponent,
     PastelesCelebrarComponent,
     BuyFormComponent,
+    imgPipe2
 
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NgbModule
   ]
 })
 export class HomeModule { }
