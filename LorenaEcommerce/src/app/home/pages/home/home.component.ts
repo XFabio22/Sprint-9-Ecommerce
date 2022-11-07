@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    //alertas en formularios / solucionar lo de el logout / validar campos en el form de compra y pantallas de carga
   }
 
 }
