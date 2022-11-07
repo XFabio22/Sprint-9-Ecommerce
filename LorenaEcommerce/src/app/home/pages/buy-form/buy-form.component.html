@@ -1,40 +1,43 @@
 <div class="container mt-4  ">
     <div class="row"> 
         <div class="col-5">
-            <img [src]="item| imagen"  class="img-fluid  w-100" alt="...">
+            <img [src]="item| img"  class="img-fluid  w-100" alt="...">
         </div>
         <div class="col-6 rounded  ">
-            <h3>{{item.name}}</h3>
+            <div class="col-13"></div>
+            <h3>{{item.name}} <small >{{item.price}}€</small></h3>
             <p>{{item.descripcion}}</p>
             <hr class="text-danger">
             <form  [formGroup]="buyForm"  class="needs-validation" novalidate >
                 <div *ngIf="item.category === 'Personalizados'">
                     <p class="text-danger" >Si desea el mismo pastel que el de la foto ESCRIBA EL MISMO NOMBRE EN EL CAMPO DE TEMATICA </p>
-                    <div class="form-floating mb-3">
+                    <label for="TEMÁTICA">ESCRIBE AQUÍ LA TEMÁTICA</label>
+                    <div class="input-group mb-3">
                         <!-- TEMÁTICA -->
                         <input 
                         type="text" 
                         class="form-control"
-                    
+                        placeholder="Eje:Hallowen, navidad,Dibujo animado... "
                         formControlName="tematica" 
                         required
                         id="TEMÁTICA"
                         >
-                        <label for="TEMÁTICA">ESCRIBE AQUÍ LA TEMÁTICA</label>
+
                     </div>
                 </div>
 
-                
-                <div class="form-floating mb-3">
+                <label for="nameCumpleanero">ESCRIBE AQUÍ EL NOMBRE DE EL CUMPLEAÑER@</label>
+                <div class="input-group  mb-3">
                     <!-- nameCumpleanero -->
                     <input 
                     type="text" 
                     class="form-control"
+                    placeholder="Juan Alvarez..."
                     formControlName="nameCumpleanero" 
                     required
                     id="nameCumpleanero"
                     >
-                    <label for="nameCumpleanero">ESCRIBE AQUÍ EL NOMBRE DE EL CUMPLEAÑER@</label>
+                   
                 </div>
                 <!-- Sabores -->
 
@@ -91,7 +94,7 @@
 
 
                 <label for="cantidad">Cantidad</label>
-                <div class="input-group w-25">
+                <div class="input-group w-50">
                     
                 <button 
                 class="btn ms-2 btn-warning"    
@@ -118,7 +121,7 @@
                 </div>
 
                 <div class="d-grid gap-2 mt-3">  
-                    <button class="buttonEspecial " routerLink="/cart"> 
+                    <button class="buttonEspecial " (click)="addCart()"> 
                         agregar al carrito
                     </button>
                 </div>

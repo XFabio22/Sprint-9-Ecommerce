@@ -2,45 +2,45 @@
 <hr>
 <div class="container-fluid ">
     <div class="row ">
-        <div *ngFor="let item of productos;let i = index" class="col-md-3 col-sm-6 ">
+        <div *ngFor="let item of productos;let i = index" class="col-md-4 col-lg-3 col-sm-6 ">
     
             <div class="card mb-4">
                 <img [src]="item | imagen"  alt="" class="card-img">
                 <!-- src="../../../../assets/imgpastel/lilac roses.jpg"  -->
                 <div class="card-body">
                     <div class="card-info">
-                        <h5 class="card-title">{{item.name}}</h5>
+                        <h5 class="card-title">{{item.name}} </h5>
                 
                             <div class="col-6">
-                                <p>price: {{item.price}}</p>
+                                <p>price: {{item.price}}€</p>
                             </div>
                             <div class="row">
                                 <div class="col-12 mb-3">
                                     <p class="card-text ">Descripcion: {{item.descripcion}}</p>
                                 </div>
                                 <div class="col-6">
-                                    <p>discount: {{item.discount}}$</p>
+                                    <p>discount: {{item.discount}}€</p>
                                 </div>
                                 <div class="col-6">
                                     <p>Categorias: {{item.category}}</p>
                                 </div>
                             </div>
 
-                            <div class="">
-                                <button class="noselect   button" (click)="productDelete(item._id)">
-
-                                    <span class="text">Delete</span>
-                                    <span class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg>
-                                    </span>
-                                </button>
-                                <button class="noselect  button2 "  [routerLink]="['edit/', item._id]" >
-                                    <!-- (click)="borrar(i)"   data-bs-toggle="modal" data-bs-target="#exampleModal"  -->
-                                    <span class="text" >Edit</span>
-                                    <span class="icon text-white">
-                                        <i class="fa-solid fa-file-pen"></i>
-                                    </span>
-                                </button>
+                            <div class="row">
+                                <div class="col-6">
+                                    <button class="noselect btn btn-danger" (click)="productDelete(item._id)">
+                                        Borrar <i class="fa-solid fa-trash"></i>
+                                        
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="noselect btn btn-primary"  [routerLink]="['edit/', item._id]" >
+                                      
+                                        Editar    <i class="fa-solid fa-file-pen"></i>
+                                        
+                                    </button>
+                                </div>
+                               
                             </div>
                 </div>
             </div>

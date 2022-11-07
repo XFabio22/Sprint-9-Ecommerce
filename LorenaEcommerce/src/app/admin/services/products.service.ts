@@ -14,6 +14,12 @@ export class productsService {
 
     private Base_UrL = environment.BaseUrL
 
+    productsArr:DBProduct[] =[]
+
+    get _productos (){
+        return {...this.productsArr}
+    }
+
 
     constructor(private http:HttpClient) { }
 

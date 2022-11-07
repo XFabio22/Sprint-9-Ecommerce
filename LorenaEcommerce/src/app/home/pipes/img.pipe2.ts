@@ -7,11 +7,11 @@ import { DBProduct } from "src/app/admin/interfaces/products.interfaces";
 
 
 @Pipe({
-    name: 'imagen'
+    name: 'img'
 })
 
 export class imgPipe2 implements PipeTransform{
-    transform(item: DBProduct | any):string {
+    transform(item: DBProduct ):string {
         return `../../../../assets/imgpastel/${item.img}.jpg`
     }
 }

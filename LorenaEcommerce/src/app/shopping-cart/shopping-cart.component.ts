@@ -1,3 +1,6 @@
+import { CartService } from './../home/services/cart.service';
+import { productoAnadido } from './../admin/interfaces/products.interfaces';
+import { productsService } from './../admin/services/products.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  constructor() { }
+  constructor( private CartService:CartService) { }
 
+  productos:productoAnadido[]=[]
   ngOnInit(): void {
+    this.productos =  this.CartService.cartList 
   }
 
 }

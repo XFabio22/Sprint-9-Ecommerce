@@ -25,3 +25,18 @@ export interface AddProduct {
     uid:         string;
     msg:         string
 }
+
+export interface productoAnadido{
+        tematica? :string,
+        nameCumpleanero:string,
+        sabores:string,
+        zise:string,
+        fechaDeRecogida:string,
+        horaDeRecogida:string,
+        cantidad:number,
+        name:string,
+        img:string,
+        price:number,
+        total:number,
+        descripcion:string
+}
