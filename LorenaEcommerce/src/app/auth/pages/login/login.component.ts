@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
       .subscribe(ok =>{
         // console.log(ok);
         if(ok === true){
-          this.router.navigate(['./home'])
+          this.router.navigate([''])
         }else {
           Swal.fire('Error',ok,'error');
         }

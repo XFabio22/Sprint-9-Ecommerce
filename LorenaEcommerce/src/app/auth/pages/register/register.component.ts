@@ -19,7 +19,8 @@ export class RegisterComponent implements OnInit {
   registerForm:FormGroup = this.fb.group({
     name:['',[Validators.required, Validators.minLength(3)]],
     email:['',[Validators.required,Validators.pattern(this.emailPattern)]],
-    password:['',[Validators.required,Validators.minLength(6)]]
+    password:['',[Validators.required,Validators.minLength(6)]],
+    admin:[false]
   })
   ngOnInit(): void {
   }
@@ -64,12 +65,12 @@ export class RegisterComponent implements OnInit {
   }
   
   submitUser(){
-    const {name, email,password} = this.registerForm.value;
+    const {name, email,password,admin} = this.registerForm.value;
 
     if(this.registerForm.invalid){
       return this.registerForm.markAllAsTouched()
     }else if(this.registerForm.valid) {
-      this.authService.register(name,email,password)
+      this.authService.register(name,email,password,admin)
       .subscribe(ok =>{
         console.log(ok);
         if(ok === true){

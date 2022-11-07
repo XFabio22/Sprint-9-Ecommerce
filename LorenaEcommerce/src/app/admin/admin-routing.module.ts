@@ -23,10 +23,6 @@ const rutasADMIN: Routes = [
             {
                 path:'list/edit/:_id',
                 component:FormEditComponent
-            },
-            {
-                path:'**',
-                redirectTo:'list'
             }
         ]
     }

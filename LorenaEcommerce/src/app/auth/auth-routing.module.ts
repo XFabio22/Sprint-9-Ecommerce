@@ -14,10 +14,6 @@ const rutas: Routes = [
             {
                 path:'register',
                 component:RegisterComponent
-            },
-            {
-                path:'**',
-                redirectTo:'login'
             }
         ]
     }

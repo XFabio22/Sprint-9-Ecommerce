@@ -13,7 +13,7 @@ const ruta: Routes = [
         path:'',
         children:[
             {
-                path:'',
+                path:'page',
                 component:HomeComponent
             },
             {
@@ -35,6 +35,10 @@ const ruta: Routes = [
             {
                 path:'buyForm/:_id',
                 component:BuyFormComponent
+            },
+            {
+                path:'**',
+                redirectTo:'page'
             }
         ]
     }
