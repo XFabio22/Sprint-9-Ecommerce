@@ -13,10 +13,23 @@ export class authService {
 
   constructor(private http:HttpClient) { }
 
-  _user!:Usuario | undefined
+    _user!:Usuario | undefined
   get AuthUser(){
     return {...this._user!}
   }
+
+  guardarEnLocal(user:Usuario){
+    localStorage.setItem('User', JSON.stringify(user))
+
+}
+
+
+getListFromLocalStorage(item: string) {
+  if (!localStorage.getItem(item)) {
+  return;
+  }
+  this._user = JSON.parse(localStorage.getItem(item)!)||[];
+}
 
 
   tokenValidate():Observable<boolean> {
@@ -30,11 +43,14 @@ export class authService {
     .pipe(
         map(res => {
             localStorage.setItem('token',res.token!)
+            
             this._user ={
                 name : res.name!,
                 uid: res.uid!,
                 admin:res.admin!
             }
+
+            
             return res.ok
         }),catchError(err => of(false))
     )
@@ -58,6 +74,7 @@ export class authService {
                     uid: res.uid!,
                     admin:res.admin!
                 }
+                this.guardarEnLocal(this._user)
             }
         }),
         map(res => res.ok),
@@ -81,6 +98,7 @@ export class authService {
                 uid: res.uid!,
                 admin:res.admin!
             }
+            this.guardarEnLocal(this._user)
           }
       } ),
       map(res => res.ok),
@@ -88,12 +106,6 @@ export class authService {
     )
 
 }
-  statusUser(){
 
-  }
-
-  logout(){
-
-  }
 
 }

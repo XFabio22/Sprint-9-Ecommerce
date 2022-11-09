@@ -5,12 +5,14 @@ import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { ListComponent } from './pages/list/list.component';
 import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 import { AddProductsComponent } from './pages/add-products/add-products.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormEditComponent } from './components/form-edit/form-edit.component';
 import { imgPipe } from './pipes/img.pipe';
+import { PedidosComponent } from './pages/pedidos/pedidos.component';
+
 
 
 
@@ -24,14 +26,17 @@ import { imgPipe } from './pipes/img.pipe';
     AdminHomeComponent,
     AddProductsComponent,
     FormEditComponent,
-    imgPipe
+    imgPipe,
+    PedidosComponent
 
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    FlexLayoutModule,
-    ReactiveFormsModule
+   
+    ReactiveFormsModule,
+    FormsModule,
+    
   ],
 })
 export class AdminModule { }

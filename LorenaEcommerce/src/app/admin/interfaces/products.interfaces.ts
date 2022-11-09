@@ -11,6 +11,7 @@ export interface ProductsResponse {
     img:         string;
     name:        string;
     price:       number;
+    msg?:         string
     }
 
 
@@ -31,12 +32,11 @@ export interface productoAnadido{
         nameCumpleanero:string,
         sabores:string,
         zise:string,
-        fechaDeRecogida:string,
+        fechaDeRecogida?:string,
         horaDeRecogida:string,
         cantidad:number,
         name:string,
         img:string,
         price:number,
-        total:number,
         descripcion:string
 }

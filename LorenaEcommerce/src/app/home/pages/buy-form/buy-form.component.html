@@ -12,7 +12,7 @@
                 <div *ngIf="item.category === 'Personalizados'">
                     <p class="text-danger" >Si desea el mismo pastel que el de la foto ESCRIBA EL MISMO NOMBRE EN EL CAMPO DE TEMATICA </p>
                     <label for="TEMÁTICA">ESCRIBE AQUÍ LA TEMÁTICA</label>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-2">
                         <!-- TEMÁTICA -->
                         <input 
                         type="text" 
@@ -27,7 +27,7 @@
                 </div>
 
                 <label for="nameCumpleanero">ESCRIBE AQUÍ EL NOMBRE DE EL CUMPLEAÑER@</label>
-                <div class="input-group  mb-3">
+                <div class="input-group mb-2 ">
                     <!-- nameCumpleanero -->
                     <input 
                     type="text" 
@@ -37,51 +37,88 @@
                     required
                     id="nameCumpleanero"
                     >
-                   
+                </div>
+                <div  class="mb-2" *ngIf="siElCampoNoesValido('nameCumpleanero')">
+                    <span 
+                    class="  form-text text-danger "
+                    [innerHTML]="nameMsgErr"
+                    ></span>
                 </div>
                 <!-- Sabores -->
 
                 <label for="precio">Sabores</label>
-                <div class="input-group   mb-3">
+                <div class="input-group   mb-2">
                         <select formControlName="sabores"   class="form-select" aria-label="Default select example" required>
                             <option  value="Vainilla y chocolate ">Vainilla y chocolate </option>
                             <option  value="Chocolate con relleno de fresas">Chocolate con relleno de mermelada de fresas</option>
                             <option  value="Formales">Tres leches</option>
                         </select>
                 </div>
+                <div class="mb-2" *ngIf="siElCampoNoesValido('sabores')">
+                    <span 
+                    class="form-text text-danger "
+                    [innerHTML]="saboresMsgErr"
+                    ></span>
+                </div>
+
+
                 <!-- Tamaños -->
                 <label for="precio">Tamaños</label>
-                <div class="input-group   mb-3">
+                <div class="input-group   mb-2">
                         <select formControlName="zise"   class="form-select" aria-label="Default select example" required>
                             <option  value="Pequeño">Pequeño 10/12 porciones</option>
                             <option  value="Medianos">Medianos 18/20 porciones</option>
                             <option  value="Grandes">Grandes 25/33 porciones</option>
                         </select>
                 </div>  
-            
+                
+                <div class="mb-2"  *ngIf="siElCampoNoesValido('zise')">
+                    <span 
+                    class="form-text text-danger "
+                    [innerHTML]="ziseMsgErr"
+                    ></span>
+                </div>
+
+
                 <!-- Data -->
                 <label for="precio">FECHA DE RECOGIDA/ENVÍO</label>
-                <form class="row row-cols-sm-auto mb-3">
+                <!-- <input class="form-control"
+                type="text"
+                placeholder="yyyy-mm-dd"
+                formControlName="fechaDeRecogida"
+                > -->
+                <form class="row row-cols-sm-auto mb-2">
                     <div class="col-12">
                         <div class="input-group">
                             <input
                                 class="form-control"
+                                type="text"
                                 placeholder="yyyy-mm-dd"
                                 name="dp"
                                 [(ngModel)]="model"
                                 ngbDatepicker
                                 #d="ngbDatepicker"
-                                formControlName="fechaDeRecogida"
+                                [formControlName]="'fechaDeRecogida'"
                             />
                             
-                            <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()"  type="button"></button>
+                            <button class="btn btn-warning bi bi-calendar3" (click)="d.toggle()"  type="button"></button>
                         </div>
                     </div>
                 </form>
+<!-- 
+                <div class="mb-2"  *ngIf="siElCampoNoesValido('fechaDeRecogida')">
+                    <span 
+                    class="form-text text-danger "
+                    [innerHTML]="fechaDeRecogidaMsgErr"
+                    ></span>
+                </div>
+ -->
+
+
                 <!-- Hora -->
 
                 <label for="precio">HORA DE RECOGIDA (SOLO PARA RECOGIDA EN TIENDA)</label>
-                <div class="input-group   mb-3">
+                <div class="input-group   mb-2">
                         <select formControlName="horaDeRecogida"      class="form-select" aria-label="Default select example" required>
                             <option  value="11:00 AM">11:00 AM</option>
                             <option  value="12:00 AM">12:00 AM</option>
@@ -92,9 +129,16 @@
                         </select>
                 </div>  
 
+                <div class="mb-2" *ngIf="siElCampoNoesValido('horaDeRecogida')">
+                    <span 
+                    class="form-text text-danger "
+                    [innerHTML]="horaDeRecogidaMsgErr"
+                    ></span>
+                </div>
+
 
                 <label for="cantidad">Cantidad</label>
-                <div class="input-group w-50">
+            <div class="input-group w-50">
                     
                 <button 
                 class="btn ms-2 btn-warning"    
@@ -118,7 +162,13 @@
                 >
                 +
             </button>
-                </div>
+            </div>
+            <div class="mb-2" *ngIf="siElCampoNoesValido('cantidad')">
+                <span 
+                class="form-text text-danger "
+                [innerHTML]="cantidadMsgErr"
+                ></span>
+            </div>
 
                 <div class="d-grid gap-2 mt-3">  
                     <button class="buttonEspecial " (click)="addCart()"> 

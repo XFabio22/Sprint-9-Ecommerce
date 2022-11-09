@@ -12,9 +12,22 @@ export class ShoppingCartComponent implements OnInit {
 
   constructor( private CartService:CartService) { }
 
-  productos:productoAnadido[]=[]
-  ngOnInit(): void {
-    this.productos =  this.CartService.cartList 
+  // productos:productoAnadido[]=[]
+  ngOnInit(): void {  
+    this.CartService.getListFromLocalStorage('lista')
+    this.CartService.calculateTotal()
+    
+  }
+
+  remove(name:string){
+    this.CartService.removeFromCart(name)
+   
+  }
+  get totalPrice(){
+    return this.CartService.totalAPagar
+  }
+  get productos() {
+    return this.CartService.cartList;
   }
 
 }

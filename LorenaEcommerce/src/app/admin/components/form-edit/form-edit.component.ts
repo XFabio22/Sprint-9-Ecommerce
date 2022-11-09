@@ -47,20 +47,18 @@ editProducto(_id:string) {
   //pon alertas antes de hacer todo
   const{name,img,price,discount,descripcion,category} = this.EditForm.value
   if(this.EditForm.invalid){
-
-  }else{
-    
+      Swal.fire('Error','Rellena todos los campos','error')
+  }else if (this.EditForm.valid){
+    this.productsService.edittProducts(_id,name,img,price,discount,descripcion,category)
+    .subscribe(res =>{
+      if(res.ok){
+        Swal.fire('Saved!', res.mgs, 'success')
+        this.router.navigate(['admin/list'])
+      }else{
+        Swal.fire('Error',res.mgs,'error');
+      }
+    }) 
   }
-
-      this.productsService.edittProducts(_id,name,img,price,discount,descripcion,category)
-      .subscribe(res =>{
-        if(res.ok){
-          Swal.fire('Saved!', res.mgs, 'success')
-          this.router.navigate(['admin/list'])
-        }else{
-          Swal.fire('Error',res.mgs,'error');
-        }
-      })
       // this.addProductsForm.reset({name:'',img:'',price:0,discount:0,descripcion:'',category:''})
       console.log(this.EditForm);
     

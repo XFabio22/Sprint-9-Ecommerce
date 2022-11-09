@@ -1,52 +1,74 @@
-<h1>Listado de Prodcutos</h1>
-<hr>
-<div class="container-fluid ">
-    <div class="row ">
-        <div *ngFor="let item of productos;let i = index" class="col-md-4 col-lg-3 col-sm-6 ">
-    
-            <div class="card mb-4">
-                <img [src]="item | imagen"  alt="" class="card-img">
-                <!-- src="../../../../assets/imgpastel/lilac roses.jpg"  -->
-                <div class="card-body">
-                    <div class="card-info">
-                        <h5 class="card-title">{{item.name}} </h5>
-                
-                            <div class="col-6">
-                                <p>price: {{item.price}}€</p>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 mb-3">
-                                    <p class="card-text ">Descripcion: {{item.descripcion}}</p>
-                                </div>
-                                <div class="col-6">
-                                    <p>discount: {{item.discount}}€</p>
-                                </div>
-                                <div class="col-6">
-                                    <p>Categorias: {{item.category}}</p>
-                                </div>
-                            </div>
 
-                            <div class="row">
-                                <div class="col-6">
-                                    <button class="noselect btn btn-danger" (click)="productDelete(item._id)">
-                                        Borrar <i class="fa-solid fa-trash"></i>
-                                        
-                                    </button>
-                                </div>
-                                <div class="col-6">
-                                    <button class="noselect btn btn-primary"  [routerLink]="['edit/', item._id]" >
-                                      
-                                        Editar    <i class="fa-solid fa-file-pen"></i>
-                                        
-                                    </button>
-                                </div>
-                               
-                            </div>
-                </div>
+
+
+<div class="container text-center"  *ngIf="productos.length == 0; else divCarga">
+    <div class="row">
+        <div class="col-12">
+            <div class="spinner-border " role="status">
+                <span class="visually-hidden">Loading...</span>
             </div>
-    
-        </div>
+        </div>  
     </div>
-    
 </div>
+
+
+<ng-template #divCarga>
+
+        
+    <h1>Listado de Prodcutos</h1>
+    <hr>
+    <div class="container-fluid ">
+        <div class="row ">
+            <div *ngFor="let item of productos;let i = index" class="col-md-4 col-lg-3 col-sm-6 ">
+        
+                <div class="card mb-4">
+                    <img [src]="item | imagen"  alt="" class="card-img">
+                    <!-- src="../../../../assets/imgpastel/lilac roses.jpg"  -->
+                    <div class="card-body">
+                        <div class="card-info">
+                            <h5 class="card-title">{{item.name}} </h5>
+                    
+                                <div class="col-6">
+                                    <p>price: {{item.price}}€</p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <p class="card-text ">Descripcion: {{item.descripcion}}</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>discount: {{item.discount}}€</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>Categorias: {{item.category}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button class="noselect btn btn-danger" (click)="productDelete(item._id)">
+                                            Borrar <i class="fa-solid fa-trash"></i>
+                                            
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="noselect btn btn-primary"  [routerLink]="['edit/', item._id]" >
+                                        
+                                            Editar    <i class="fa-solid fa-file-pen"></i>
+                                            
+                                        </button>
+                                    </div>
+                                
+                                </div>
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+        
+    </div>
+
+    </div>
+</ng-template>
+
+
 

@@ -11,14 +11,16 @@ export class GuardGuard implements CanActivate, CanLoad {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean > |  boolean  {
-      if(this.authService._user?.admin === true){
+      
+      if(this.authService.AuthUser?.admin === true){
         return true
       }else {
-        this.router.navigate([['']])
+        
+
         return false
       }
      
-    //this.authService.tokenValidate()
+    
     // .pipe(
     //   tap (valid =>{
     //     if(!valid){
@@ -30,11 +32,10 @@ export class GuardGuard implements CanActivate, CanLoad {
   canLoad(
     route: Route, 
     segments: UrlSegment[]): Observable<boolean> | boolean  {
-      if(this.authService._user?.admin === true){
+      if(this.authService.AuthUser.admin === true){ 
 
         return true
-      }else {
-        this.router.navigate([['']])
+      }else {        
         return false
       }
      

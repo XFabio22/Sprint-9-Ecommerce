@@ -38,6 +38,16 @@ export class productsService {
         const body = {name,category,price,discount,img,descripcion}
 
         return this.http.post<AddProduct>(url,body)
+        .pipe(
+            tap(res =>{
+              if(res.ok){
+                console.log('todo bien');
+                
+                }
+            } ),
+            map(res => res.ok),
+              catchError(err => of(err.error.msg))
+          )
     }
 
 

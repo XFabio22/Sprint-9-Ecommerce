@@ -1,4 +1,17 @@
 
+<div class="container text-center"  *ngIf="productos.length == 0; else divCarga">
+    <div class="row">
+        <div class="col-12">
+            <div class="spinner-border " role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>  
+    </div>
+</div>
+
+<ng-template #divCarga>
+
+    
 <hr>
 <div class="container-fluid ">
     <div class="row ">
@@ -29,3 +42,4 @@
     
 </div>
 
+</ng-template>

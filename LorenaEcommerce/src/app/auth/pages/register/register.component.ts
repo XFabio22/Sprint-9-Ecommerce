@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { authService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,Validators  } from '@angular/forms';
@@ -13,7 +14,7 @@ export class RegisterComponent implements OnInit {
 
   
 
-  constructor( private authService: authService , private fb:FormBuilder) { }
+  constructor( private authService: authService , private fb:FormBuilder ,private router:Router) { }
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   registerForm:FormGroup = this.fb.group({
@@ -74,7 +75,7 @@ export class RegisterComponent implements OnInit {
       .subscribe(ok =>{
         console.log(ok);
         if(ok === true){
-          ////
+            this.router.navigate([''])
         }else {
           Swal.fire('Error',ok,'error');
         }

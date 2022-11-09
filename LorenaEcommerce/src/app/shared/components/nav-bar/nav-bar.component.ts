@@ -14,6 +14,8 @@ export class NavBarComponent implements OnInit {
   public isLogged = false;
 
   ngOnInit(): void {
+    this.authService.getListFromLocalStorage('User')
+    this.userIsLogged()
   }
   userIsLogged() {
     if (localStorage.getItem('token')) {
@@ -28,7 +30,7 @@ export class NavBarComponent implements OnInit {
   //  localStorage.removeItem('token')
     this.isLogged = false;
     this.router.navigate(['/']);
-    this.authService._user = {admin:false,name:'',uid:''}
+    this.authService._user = {name:'',uid:'',admin:false}
   }
   get auth(){
     return this.authService.AuthUser
