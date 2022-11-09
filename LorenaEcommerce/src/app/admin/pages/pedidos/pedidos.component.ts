@@ -1,5 +1,6 @@
+import { arrayPedidos, DbPedido, productoAnadido } from 'src/app/admin/interfaces/products.interfaces';
 import { Component, OnInit } from '@angular/core';
-
+import { productsService } from '../../services/products.service';
 @Component({
   selector: 'app-pedidos',
   templateUrl: './pedidos.component.html',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PedidosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productsService:productsService) { }
+  DbPedido:DbPedido[]=[]
+
 
   ngOnInit(): void {
+    // this.productsService.getListPedidos()
+    // .subscribe((res:arrayPedidos) =>{
+ 
+    //   this.DbPedido.push(...res.dbPedido)
+    //   console.log(this.DbPedido );
+      
+    // })
+  
   }
+
+
+  findIndes(){
+
+  }
+
 
 }

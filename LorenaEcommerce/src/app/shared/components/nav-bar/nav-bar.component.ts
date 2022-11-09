@@ -21,12 +21,11 @@ export class NavBarComponent implements OnInit {
     if (localStorage.getItem('token')) {
       this.isLogged = true;
     } 
-    console.log(this.auth);
   }
 
 
   logout(){
-    localStorage.clear();
+    localStorage.removeItem('token');
   //  localStorage.removeItem('token')
     this.isLogged = false;
     this.router.navigate(['/']);

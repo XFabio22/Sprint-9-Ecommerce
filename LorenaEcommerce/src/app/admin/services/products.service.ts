@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { catchError, map, Observable, of, tap } from 'rxjs';
-import { AddProduct, DBProduct, ProductsResponse } from '../interfaces/products.interfaces';
+import { AddProduct, DBProduct, ProductsResponse,arrayPedidos, DbPedido } from '../interfaces/products.interfaces';
 
 
 
@@ -11,7 +11,7 @@ import { AddProduct, DBProduct, ProductsResponse } from '../interfaces/products.
     providedIn: 'root'
 })
 export class productsService {
-
+  
     private Base_UrL = environment.BaseUrL
 
     productsArr:DBProduct[] =[]
@@ -22,6 +22,10 @@ export class productsService {
 
 
     constructor(private http:HttpClient) { }
+    getListPedidos():Observable<arrayPedidos>{
+        const url = `${this.Base_UrL}`;
+        return  this.http.get<arrayPedidos>(`${url}/pedidos/getPedidos`)
+    }
 
     getListProdcuts():Observable<ProductsResponse>{
         const url = `${this.Base_UrL}`;
@@ -40,14 +44,14 @@ export class productsService {
         return this.http.post<AddProduct>(url,body)
         .pipe(
             tap(res =>{
-              if(res.ok){
+                if(res.ok){
                 console.log('todo bien');
                 
                 }
             } ),
             map(res => res.ok),
-              catchError(err => of(err.error.msg))
-          )
+            catchError(err => of(err.error.msg))
+        )
     }
 
 

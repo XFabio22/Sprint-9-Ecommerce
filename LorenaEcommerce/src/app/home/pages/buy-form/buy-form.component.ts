@@ -142,7 +142,7 @@ export class BuyFormComponent implements OnInit {
     const {tematica,nameCumpleanero,sabores,zise,fechaDeRecogida,horaDeRecogida,cantidad} = this.buyForm.value
     const {name,img,price,discount,descripcion,category} = this.item
   
-    // const total = this.total += this.item.price * cantidad;
+    const total = this.total += this.item.price * cantidad;
     console.log(this.total);
    
     const productoAnadido:productoAnadido ={ 
@@ -156,7 +156,7 @@ export class BuyFormComponent implements OnInit {
       name,
       img,
       price,
-      // total ,
+      total ,
       descripcion
     }
 
@@ -165,6 +165,7 @@ export class BuyFormComponent implements OnInit {
     }else if (this.buyForm.valid){
       this.addCartList.push(productoAnadido)
       this.CartService.guardarEnLocal(this.addCartList)
+      this.CartService.calculateTotal(total)
       this.buyForm.reset({tematica:'',nameCumpleanero:'',sabores:'',zise:'',fechaDeRecogida:'',horaDeRecogida:'',cantidad:0})
       this.router.navigate(['/cart'])
     }

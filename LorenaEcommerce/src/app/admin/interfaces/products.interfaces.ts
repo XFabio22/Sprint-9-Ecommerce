@@ -15,6 +15,8 @@ export interface ProductsResponse {
     }
 
 
+
+
 export interface AddProduct {
     category:    string;
     descripcion: string;
@@ -27,16 +29,29 @@ export interface AddProduct {
     msg:         string
 }
 
-export interface productoAnadido{
-        tematica? :string,
-        nameCumpleanero:string,
-        sabores:string,
-        zise:string,
-        fechaDeRecogida?:string,
-        horaDeRecogida:string,
-        cantidad:number,
-        name:string,
-        img:string,
-        price:number,
-        descripcion:string
-}
+
+export interface arrayPedidos {
+    ok?: boolean;
+    dbPedido: DbPedido[];
+  }
+  
+  export interface DbPedido {
+    _id?: string;
+    pedidos: productoAnadido[];
+    __v?: number;
+  }
+  
+  export interface productoAnadido {
+    tematica: string;
+    nameCumpleanero: string;
+    sabores: string;
+    zise: string;
+    fechaDeRecogida: string;
+    horaDeRecogida: string;
+    cantidad: number;
+    name: string;
+    img: string;
+    price: number;
+    total: number;
+    descripcion: string;
+  }
