@@ -32,7 +32,7 @@ ngOnInit(): void {
     .subscribe( res =>  this.producto =  res );
     
 } 
-
+submitted = false;
 
   EditForm:FormGroup =this.fb.group({
     name:['',[Validators.required, Validators.minLength(3)]],
@@ -43,11 +43,24 @@ ngOnInit(): void {
     category:['',[Validators.required]]
   })
 
+
+
+  get f(){
+    return this.EditForm.controls;
+  }
+
+  onReset() {
+    this.submitted = false;
+    this.EditForm.reset();
+  }
+
 editProducto(_id:string) {
   //pon alertas antes de hacer todo
+  this.submitted = true
   const{name,img,price,discount,descripcion,category} = this.EditForm.value
   if(this.EditForm.invalid){
-      Swal.fire('Error','Rellena todos los campos','error')
+    Swal.fire('Error','rellene todos los campos','error')
+    return  this.EditForm.markAllAsTouched()
   }else if (this.EditForm.valid){
     this.productsService.edittProducts(_id,name,img,price,discount,descripcion,category)
     .subscribe(res =>{

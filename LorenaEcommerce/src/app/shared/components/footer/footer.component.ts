@@ -8,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   constructor() { }
-
+  public isLogged = false;
   ngOnInit(): void {
+    this.userIsLogged()
+  }
+  userIsLogged() {
+    if (localStorage.getItem('token')) {
+      this.isLogged = true;
+    } 
   }
 
+  
 }

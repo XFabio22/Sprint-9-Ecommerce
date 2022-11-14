@@ -1,12 +1,20 @@
-.CustomColor3{
-    background-color:#B0D9D1;
 
+.bg-PrimaryCustom{
+    background-color:  #F2EDFD;
 }
 
-.text-Primary{
-    color: #E88F2A;
+.font-navbar{
+    color: #ABACB6;
+    font-family: inherit;
+    font-style: normal;
+
+    font-size: 18px;
+    line-height: 29px;
+}
+.font-navbar:hover{
+    color: black;
 }
 
-.bg-Dark{
-    background-color:  #2B2825;
+.logout:hover{
+    cursor: pointer;
 }

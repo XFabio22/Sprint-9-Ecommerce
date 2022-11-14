@@ -12,7 +12,7 @@ import Swal from 'sweetalert2'
 export class AddProductsComponent  {
   
   constructor(private fb:FormBuilder,private productsService:productsService) { }
-  
+  submitted = false;
   addProductsForm:FormGroup =this.fb.group({
     name:['',[Validators.required, Validators.minLength(3)]],
     img:['',Validators.required],
@@ -22,7 +22,14 @@ export class AddProductsComponent  {
     category:['',Validators.required]
   })  
 
+  get f(){
+    return this.addProductsForm.controls;
+  }
 
+  onReset() {
+    this.submitted = false;
+    this.addProductsForm.reset();
+  }
   // siElCampoNoesValido(obj:string){
   //   if(this.addProductsForm.controls[obj].invalid){
   //     return true
@@ -86,6 +93,7 @@ export class AddProductsComponent  {
   //   }
   addProduct(){
     const{name,img,price,discount,descripcion,category} = this.addProductsForm.value
+    this.submitted = true
     if(this.addProductsForm.invalid){
       Swal.fire('Error','rellene todos los campos','error')
       return  this.addProductsForm.markAllAsTouched()

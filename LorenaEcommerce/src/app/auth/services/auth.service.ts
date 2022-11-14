@@ -18,18 +18,9 @@ export class authService {
     return {...this._user!}
   }
 
-  guardarEnLocal(user:Usuario){
-    localStorage.setItem('User', JSON.stringify(user))
-
-}
 
 
-getListFromLocalStorage(item: string) {
-  if (!localStorage.getItem(item)) {
-  return;
-  }
-  this._user = JSON.parse(localStorage.getItem(item)!)||[];
-}
+
 
 
   tokenValidate():Observable<boolean> {
@@ -74,7 +65,7 @@ getListFromLocalStorage(item: string) {
                     uid: res.uid!,
                     admin:res.admin!
                 }
-                this.guardarEnLocal(this._user)
+                
             }
         }),
         map(res => res.ok),
@@ -98,7 +89,7 @@ getListFromLocalStorage(item: string) {
                 uid: res.uid!,
                 admin:res.admin!
             }
-            this.guardarEnLocal(this._user)
+            
           }
       } ),
       map(res => res.ok),

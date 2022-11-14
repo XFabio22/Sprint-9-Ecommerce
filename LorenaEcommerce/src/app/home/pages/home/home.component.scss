@@ -1,7 +1,85 @@
-.bg-Primary{
-    background-color: #E88F2A;
-    
+
+.font-Tittle{
+    font-family: 'Playfair Display', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 128px;
+    display: flex;
+    align-items: center;
 }
+.font-subTittle{
+    font-family: 'Playfair Display', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 85px;
+    display: flex;
+    align-items: center;
+}
+
+.font-text{
+    color: #ABACB6;
+    font-family: inherit;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 29px;
+}
+// .font-Secondary {
+//     font-family: 'Pacifico', cursive;
+// }
+
+
+.btnopenCatalog{
+    background-color: transparent;
+    box-sizing: border-box;
+    width: 378px;
+    height: 77px;
+    // left: 69px;
+    // top: 595px;
+
+    border: 1px solid #000000;
+}
+
+hr.hrCustom2{
+    background-color: #fff;
+	border-top: 2px dashed #000000;
+    position: absolute;
+    width: 378px;
+
+    left: calc(50% - 444px/2 + 440px);
+    top: calc(50% - 0px/2 + 117px);
+
+}
+
+hr.hrCustom{
+    background-color: #fff;
+	border-top: 2px dashed #000000;
+}
+
+.bg-PrimaryCustom{
+    background-color:  #F2EDFD;
+}
+
+
+
+.borderimg{
+    border-radius: 44px;
+    height: 687px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .btn-Primary{
     background-color: #E88F2A;
     color: #FFFFFF;
@@ -28,9 +106,6 @@
     --dark: #2B2825;
 }
 
-.font-Secondary {
-    font-family: 'Pacifico', cursive;
-}
 
 h1,
 h2,

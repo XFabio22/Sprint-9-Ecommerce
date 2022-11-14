@@ -17,7 +17,7 @@
         <div *ngFor="let item of productos " class="col-md-3 col-sm-6 ">
     
             <div class="card mb-4">
-                <img [src]="item | img"  alt="" class="card-img">
+                <img loading="lazy" [src]="item | img"  alt=""  [routerLink]="['/home/buyForm',item._id]" class="card-img">
                 <div class="card-body">
                     <div class="card-info">
                         <p class="text-title">{{item.name}}</p>

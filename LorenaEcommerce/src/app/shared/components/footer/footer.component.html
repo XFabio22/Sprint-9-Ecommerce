@@ -1,5 +1,5 @@
 <!-- Footer Start -->
-<div class="container-fluid bg-img text-Secondary" style="margin-top: 90px">
+<div class="container-fluid bg-img text-Secondary" style="margin-top: 90px" (mousemove)="userIsLogged()" >
     <div class="container">
         <div class="row gx-5">
             <div class="col-lg-4 col-md-6 mb-lg-n5">
@@ -46,7 +46,7 @@
                     <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
                         <h4 class="text-Primary text-uppercase mb-4">Newsletter</h4>
                         <p>Amet justo diam dolor rebum lorem sit stet sea justo kasd</p>
-                        <form action="">
+                        <form action="" *ngIf="!isLogged">
                             <div class="input-group">
                                 <!-- <input type="text" class="form-control border-white p-3" placeholder="Your Email"> -->
                                 <a class="btn btn-Primary" routerLink="/auth/login">Sign Up</a>
