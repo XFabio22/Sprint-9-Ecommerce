@@ -22,14 +22,14 @@
                     <a routerLink="/home/pasteles" class="nav-item nav-link font-navbar">Contact</a>
                 </li>
            <span *ngIf="auth.admin && isLogged">
-            <li class="nav-item ">
-                <a class="nav-link nav-item  font-navbar " routerLink="/admin/list">admin</a>
-            </li>
-           </span>
+                <li class="nav-item ">
+                    <a class="nav-link nav-item  font-navbar " routerLink="/admin/list">admin</a>
+                </li>
+            </span>
             
-               
+
             </ul>
-          
+
                 <span *ngIf="isLogged" id="nav-login" >
                     <ul class="navbar-nav">
                         <li  class="nav-item" >

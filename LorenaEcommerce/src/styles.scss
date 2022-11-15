@@ -5,8 +5,8 @@ $primary: #E88F2A ;
 $secondary: #FAF3EB;
 $light: #FFFFFF;
 $dark: #2B2825;
-.bg-Primary{
-    background-color: #E88F2A;
+.bg-PrimaryCustom{
+    background-color:  #F2EDFD;
 }
 
 .text-Primary{
@@ -38,8 +38,8 @@ $enable-negative-margins: true;
 $offcanvas-horizontal-width:        160px;
 
 // 5. Add additional custom code here
-html, body { height: 100%; }
+html, body { height: 100%; background-color:  #F2EDFD;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap';
