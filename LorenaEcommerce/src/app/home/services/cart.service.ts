@@ -1,4 +1,4 @@
-import { productoAnadido } from './../../admin/interfaces/products.interfaces';
+import { Pedido } from './../../admin/interfaces/products.interfaces';
 import { Injectable } from '@angular/core';
 import { DBProduct } from 'src/app/admin/interfaces/products.interfaces';
 import { HttpClient } from '@angular/common/http';
@@ -12,15 +12,29 @@ export class CartService {
   private Base_UrL = environment.BaseUrL
 
   totalAPagar: number = 0;
-  cartList:productoAnadido[]=[]
+  cartList:Pedido[]=[]
   
 
   constructor(private http:HttpClient) { }
   
 
- 
+  // updateOrder(order: Order, params: UpdateOrderParams[]): Observable<Order> {
+  //   let updateParams = [];
+  //   for (const param of params) {
+  //     updateParams.push(param.toString());
+  //   }
 
-addPedidos():Observable<productoAnadido>{
+  //   return this.http.patch<Order>(
+  //     `${this.url}/${order.id}`,
+  //     order,
+  //     { params: { 'field': updateParams } }
+  //   )
+  //     .pipe(catchError(this.eh.handleError));
+  // }
+
+
+
+addPedidos():Observable<Pedido>{
 
   const pedidos = this.cartList.map((valore) => valore); 
 
@@ -28,7 +42,7 @@ addPedidos():Observable<productoAnadido>{
     const url = `${this.Base_UrL}/pedidos/newPedido`
     const body = {pedidos}
 
-    return this.http.post<productoAnadido>(url,body)
+    return this.http.post<Pedido>(url,body)
 }
 
 calculateTotal(suma:number) {
@@ -71,7 +85,7 @@ getListFromLocalStoragePrecio(item: string) {
   
 }
 
-guardarEnLocal(lista:productoAnadido[]){
+guardarEnLocal(lista:Pedido[]){
     localStorage.setItem('lista', JSON.stringify(lista))
 
 }

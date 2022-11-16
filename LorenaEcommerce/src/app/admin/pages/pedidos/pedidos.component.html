@@ -1,15 +1,16 @@
-<h1>PAGINA EN PROCESO VUELVA MAS TARDE</h1>
 
-
-<!-- <h1>Listado de Prodcutos</h1>
+<h1>Listado de Prodcutos</h1>
 <hr>
 <div class="container-fluid ">
     <div class="row ">
         <div *ngFor="let item of DbPedido ;let i = index" class="col-md-4 col-lg-3 col-sm-6 ">
             
             <div class="col-6" >
-                <button (click)="findIndes()" >buscar </button>
-                <p> {{item.pedidos[i].name }}</p>
-                <p> {{item.pedidos[i].descripcion }}</p>
-                <p> {{item.pedidos[i].price }}</p>
-            </div> -->
+                <p>Nombre de el usuario</p>
+                <p>fecha de creacion</p>
+                <p> {{item._id }}</p>
+                <button class="btn btn-primary" [routerLink]="['info/', item._id]">mirar detalles de pedido</button>
+            </div> 
+        </div>
+    </div>
+</div>

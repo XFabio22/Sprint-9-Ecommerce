@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormEditComponent } from './components/form-edit/form-edit.component';
 import { imgPipe } from './pipes/img.pipe';
 import { PedidosComponent } from './pages/pedidos/pedidos.component';
+import { InfoPedidosComponent } from './components/info-pedidos/info-pedidos.component';
 
 
 
@@ -27,7 +28,8 @@ import { PedidosComponent } from './pages/pedidos/pedidos.component';
     AddProductsComponent,
     FormEditComponent,
     imgPipe,
-    PedidosComponent
+    PedidosComponent,
+    InfoPedidosComponent
 
   ],
   imports: [

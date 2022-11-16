@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { productsService } from './../../../admin/services/products.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { switchMap } from 'rxjs';
-import { DBProduct, productoAnadido, ProductsResponse } from 'src/app/admin/interfaces/products.interfaces';
+import { DBProduct, Pedido } from 'src/app/admin/interfaces/products.interfaces';
 import { NgbDatepicker, NgbDateStruct, NgbInputDatepickerConfig , } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -98,18 +98,6 @@ export class BuyFormComponent implements OnInit {
     
     }
 
-    // get fechaDeRecogidaMsgErr():string {
-    //   const errors = this.buyForm.get('fechaDeRecogida')?.errors;
-  
-    //   if(errors?.['required']){
-    //     return 'Porfavor introdusca la fecha de recogida'
-    //   } else if (errors?.['minlength']) {
-    //     return 'Contraseña corta . debe ser superior a 6 digitos';
-    //   } 
-    //   return '';
-      
-    //   }
-
       get horaDeRecogidaMsgErr():string {
         const errors = this.buyForm.get('horaDeRecogida')?.errors;
     
@@ -145,7 +133,7 @@ export class BuyFormComponent implements OnInit {
     const total = this.total += this.item.price * cantidad;
     console.log(this.total);
    
-    const productoAnadido:productoAnadido ={ 
+    const productoAnadido:Pedido ={ 
       tematica,
       nameCumpleanero,
       sabores,

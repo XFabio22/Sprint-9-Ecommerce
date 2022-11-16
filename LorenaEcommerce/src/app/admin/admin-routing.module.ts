@@ -6,6 +6,7 @@ import { ListComponent } from './pages/list/list.component';
 import { AddProductsComponent } from './pages/add-products/add-products.component';
 import { FormEditComponent } from './components/form-edit/form-edit.component';
 import { PedidosComponent } from './pages/pedidos/pedidos.component';
+import { InfoPedidosComponent } from './components/info-pedidos/info-pedidos.component';
 
 const rutasADMIN: Routes = [
     {
@@ -28,6 +29,10 @@ const rutasADMIN: Routes = [
             {
                 path:'list/edit/:_id',
                 component:FormEditComponent
+            },
+            {
+                path: 'pedidos/info/:_id',
+                component:InfoPedidosComponent 
             }
         ]
     }

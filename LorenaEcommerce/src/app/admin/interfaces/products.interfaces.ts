@@ -30,6 +30,7 @@ export interface AddProduct {
 }
 
 
+
 export interface arrayPedidos {
     ok?: boolean;
     dbPedido: DbPedido[];
@@ -37,11 +38,11 @@ export interface arrayPedidos {
   
   export interface DbPedido {
     _id?: string;
-    pedidos: productoAnadido[];
+    pedidos: Pedido[];
     __v?: number;
   }
-  
-  export interface productoAnadido {
+
+  export interface Pedido {
     tematica: string;
     nameCumpleanero: string;
     sabores: string;

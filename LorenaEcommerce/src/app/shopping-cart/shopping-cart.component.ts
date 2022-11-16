@@ -1,7 +1,6 @@
+import { authService } from 'src/app/auth/services/auth.service';
 import { Router } from '@angular/router';
 import { CartService } from './../home/services/cart.service';
-import { productoAnadido } from './../admin/interfaces/products.interfaces';
-import { productsService } from './../admin/services/products.service';
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2'
 
@@ -12,7 +11,7 @@ import Swal from 'sweetalert2'
 })
 export class ShoppingCartComponent implements OnInit {
 
-  constructor( private CartService:CartService ,  private router:Router) { 
+  constructor( private CartService:CartService ,  private router:Router, private authService:authService) { 
     
   }
 
@@ -36,12 +35,19 @@ export class ShoppingCartComponent implements OnInit {
   get productos() {
     return this.CartService.cartList;
   }
-
+  get authUser(){
+    return this.authService.AuthUser
+  }
   shop(){
 
 
-    if(this.CartService.cartList.length === 0 ){
-       Swal.fire('No hay productos','El carrito esta vacio, primero añade prodcutos ', 'error')
+    if(this.authUser === undefined  || {}  ){
+      Swal.fire('Registrate','Debes estar registrado para realizar el pedido', 'error')
+      return 
+    }
+     else if(this.CartService.cartList.length === 0 ){
+      Swal.fire('No hay productos','El carrito esta vacio, primero añade prodcutos ', 'error')
+      return
     }
     else{
       this.CartService.addPedidos().subscribe()

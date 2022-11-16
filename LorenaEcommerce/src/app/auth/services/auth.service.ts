@@ -13,7 +13,7 @@ export class authService {
 
   constructor(private http:HttpClient) { }
 
-    _user!:Usuario | undefined
+  private  _user!:Usuario | undefined
   get AuthUser(){
     return {...this._user!}
   }

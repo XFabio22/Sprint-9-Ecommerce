@@ -1,4 +1,4 @@
-import { arrayPedidos, DbPedido, productoAnadido } from 'src/app/admin/interfaces/products.interfaces';
+import { arrayPedidos, DbPedido } from 'src/app/admin/interfaces/products.interfaces';
 import { Component, OnInit } from '@angular/core';
 import { productsService } from '../../services/products.service';
 @Component({
@@ -13,13 +13,12 @@ export class PedidosComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.productsService.getListPedidos()
-    // .subscribe((res:arrayPedidos) =>{
- 
-    //   this.DbPedido.push(...res.dbPedido)
-    //   console.log(this.DbPedido );
+    this.productsService.getListPedidos()
+    .subscribe((res:arrayPedidos) =>{
+      this.DbPedido.push(...res.dbPedido)
+      console.log(this.DbPedido );
       
-    // })
+    })
   
   }
 

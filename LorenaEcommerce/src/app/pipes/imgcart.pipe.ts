@@ -1,4 +1,4 @@
-import { productoAnadido } from './../admin/interfaces/products.interfaces';
+import { Pedido } from './../admin/interfaces/products.interfaces';
 import { Pipe, PipeTransform } from "@angular/core";
 import { DBProduct } from "src/app/admin/interfaces/products.interfaces";
 
@@ -12,7 +12,7 @@ import { DBProduct } from "src/app/admin/interfaces/products.interfaces";
 })
 
 export class imgCart implements PipeTransform{
-    transform(item: productoAnadido ):string {
+    transform(item: Pedido ):string {
         return `../../assets/imgpastel/${item.img}.jpg`
     }
 }

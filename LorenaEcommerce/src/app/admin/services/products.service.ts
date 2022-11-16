@@ -27,6 +27,11 @@ export class productsService {
         return  this.http.get<arrayPedidos>(`${url}/pedidos/getPedidos`)
     }
 
+    getDetailPedidos(id:string){
+        const url = `${this.Base_UrL}/pedidos/${id}`
+        return this.http.get<any>(url)
+    }
+
     getListProdcuts():Observable<ProductsResponse>{
         const url = `${this.Base_UrL}`;
         return  this.http.get<ProductsResponse>(`${url}/producto/product`)
@@ -50,7 +55,7 @@ export class productsService {
                 }
             } ),
             map(res => res.ok),
-            catchError(err => of(err.error.msg))
+            catchError(err => of(err.error.ok))
         )
     }
 
