@@ -1,70 +1,84 @@
-/* From uiverse.io by @alexruix */
+// /* From uiverse.io by @alexruix */
 .card {
-    // width: 350px;
-    // height:550px;
-    padding: .8em;
-    background: #f5f5f5;
-    position: relative;
-    overflow: visible;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-   }
-   
-   .card-img {
-    background-color: #ffcaa6;
+    border: 0px;
+    background-color: transparent;
+}
+
+.card-img {
+    
     height: 100%;
     width: 100%;
     border-radius: .5rem;
     transition: .3s ease;
-   }
-   
-   .card-info {
-    padding-top: 10%;
-   }
-   
+}
+.card-img:hover{
+    cursor: pointer;
+}
+
    svg {
-    width: 20px;
-    height: 20px;
-   }
-   
-   .card-footer {
+    width: 30px;
+    height: 30px;
+}
+
+
+
+
+.team-item img {
+    transition: .5s;
+  
+}
+
+.team-item:hover img {
+    transform: scale(1.1);
+    filter: blur(5px)
+}
+
+.team-item .team-overlay {
+    transition: .5s;
+    opacity: 0;
+}
+
+.team-item:hover .team-overlay {
+    opacity: 1;
+}
+
+
+button {
+    font-size: 18px;
+    color: #e1e1e1;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+  }
+  
+  button:focus,
+  button:hover {
+    color: #fff;
+  }
+  
+  button:focus:after,
+  button:hover:after {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 10px;
-    border-top: 1px solid #ddd;
-   }
-   
-   /*Text*/
-   .text-title {
-    font-weight: 900;
-    font-size: 1.2em;
-    line-height: 1.5;
-   }
-   
-   .text-body {
-    font-size: .9em;
-    padding-bottom: 10px;
-   }
-   
-   /*Button*/
-   .card-button {
-    border: 1px solid #252525;
-    display: flex;
-    padding: .3em;
-    cursor: pointer;
-    border-radius: 50px;
-    transition: .3s ease-in-out;
-   }
-   
-   /*Hover*/
-   .card-img:hover {
-    transform: translateY(-20%);
-    box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
-    cursor: pointer;
-   }
-   
-   .card-button:hover {
-    border: 1px solid #ffcaa6;
-    background-color: #ffcaa6;
-   }
+    left: 0%;
+  }
+  
+  button:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
+  }
