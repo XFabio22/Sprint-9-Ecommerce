@@ -80,31 +80,29 @@
                 </div>
 
 
-                <!-- Data -->
+                <!-- Date -->
                 <label for="precio">FECHA DE RECOGIDA/ENVÍO</label>
-                <!-- <input class="form-control"
-                type="text"
-                placeholder="yyyy-mm-dd"
-                formControlName="fechaDeRecogida"
-                > -->
-                <form class="row row-cols-sm-auto mb-2">
+
                     <div class="col-12">
-                        <div class="input-group">
-                            <input
-                                class="form-control"
-                                type="text"
-                                placeholder="yyyy-mm-dd"
-                                name="dp"
-                                [(ngModel)]="model"
-                                ngbDatepicker
-                                #d="ngbDatepicker"
-                                [formControlName]="'fechaDeRecogida'"
-                            />
-                            
-                            <button class="btn btn-warning bi bi-calendar3" (click)="d.toggle()"  type="button"></button>
-                        </div>
+                        <form class="row row-cols-sm-auto">
+                            <div class="col-12">
+                                <div class="input-group">
+                                    <input
+                                        class="form-control"
+                                        placeholder="yyyy-mm-dd"
+                                        name="dp"
+                                        [(ngModel)]="model"
+                                        ngbDatepicker
+                                        #d="ngbDatepicker"
+
+                                    />
+                                    <button class="btn btn-warning bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+                                </div>
+                            </div>
+                        </form>
+                        
                     </div>
-                </form>
+
 <!-- 
                 <div class="mb-2"  *ngIf="siElCampoNoesValido('fechaDeRecogida')">
                     <span 
@@ -112,7 +110,7 @@
                     [innerHTML]="fechaDeRecogidaMsgErr"
                     ></span>
                 </div>
- -->
+-->
 
 
                 <!-- Hora -->

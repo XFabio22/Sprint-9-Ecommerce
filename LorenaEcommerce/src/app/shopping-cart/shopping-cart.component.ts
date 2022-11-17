@@ -41,7 +41,7 @@ export class ShoppingCartComponent implements OnInit {
   shop(){
 
 
-    if(this.authUser === undefined  || {}  ){
+    if(!localStorage.getItem('token') || localStorage.length == 0 ){
       Swal.fire('Registrate','Debes estar registrado para realizar el pedido', 'error')
       return 
     }

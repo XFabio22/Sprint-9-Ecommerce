@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { catchError, map, Observable, of, tap } from 'rxjs';
-import { AddProduct, DBProduct, ProductsResponse,arrayPedidos, DbPedido } from '../interfaces/products.interfaces';
+import { AddProduct, DBProduct, ProductsResponse } from '../interfaces/products.interfaces';
+import { arrayPedidos } from '../interfaces/pedidos.interfaces';
 
 
 

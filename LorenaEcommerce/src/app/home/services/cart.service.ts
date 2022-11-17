@@ -1,4 +1,6 @@
-import { Pedido } from './../../admin/interfaces/products.interfaces';
+import { authService } from './../../auth/services/auth.service';
+import { productsService } from 'src/app/admin/services/products.service';
+import { Pedido, FechaDeRecogida } from './../../admin/interfaces/pedidos.interfaces';
 import { Injectable } from '@angular/core';
 import { DBProduct } from 'src/app/admin/interfaces/products.interfaces';
 import { HttpClient } from '@angular/common/http';
@@ -15,7 +17,8 @@ export class CartService {
   cartList:Pedido[]=[]
   
 
-  constructor(private http:HttpClient) { }
+
+  constructor(private http:HttpClient, private authService:authService) { }
   
 
   // updateOrder(order: Order, params: UpdateOrderParams[]): Observable<Order> {
@@ -37,10 +40,12 @@ export class CartService {
 addPedidos():Observable<Pedido>{
 
   const pedidos = this.cartList.map((valore) => valore); 
-
+  const userName =  this.authService.AuthUser.name
+  const userUid  = this.authService.AuthUser.uid
+  const date = new Date()
   console.log(pedidos);
     const url = `${this.Base_UrL}/pedidos/newPedido`
-    const body = {pedidos}
+    const body = {pedidos,userName,userUid ,date}
 
     return this.http.post<Pedido>(url,body)
 }

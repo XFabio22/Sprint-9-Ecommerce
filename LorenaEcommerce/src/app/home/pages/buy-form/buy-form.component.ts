@@ -4,9 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { productsService } from './../../../admin/services/products.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { switchMap } from 'rxjs';
-import { DBProduct, Pedido } from 'src/app/admin/interfaces/products.interfaces';
+import { DBProduct } from 'src/app/admin/interfaces/products.interfaces';
 import { NgbDatepicker, NgbDateStruct, NgbInputDatepickerConfig , } from '@ng-bootstrap/ng-bootstrap';
-
+import { Pedido } from 'src/app/admin/interfaces/pedidos.interfaces';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-buy-form',
@@ -29,12 +30,15 @@ export class BuyFormComponent implements OnInit {
     private CartService:CartService
   ) { }
   item! : DBProduct 
+  testForm = this.fb.group({
+    firstDate: '',
+    lastDate: ''
+  });
   buyForm:FormGroup =this.fb.group({
     tematica:[''],
     nameCumpleanero:['',[Validators.required, Validators.minLength(3)]],
     sabores:['',[Validators.required]],
     zise:['',Validators.required],
-    fechaDeRecogida:[''],
     horaDeRecogida:['',[Validators.required]],
     cantidad:[0,[Validators.required , Validators.pattern(/^[1-9]\d*$/),Validators.min(1)]]
   })
@@ -127,30 +131,41 @@ export class BuyFormComponent implements OnInit {
   // addCartList:productoAnadido[]=[]
   
   addCart(){
-    const {tematica,nameCumpleanero,sabores,zise,fechaDeRecogida,horaDeRecogida,cantidad} = this.buyForm.value
-    const {name,img,price,discount,descripcion,category} = this.item
   
-    const total = this.total += this.item.price * cantidad;
-    console.log(this.total);
-   
-    const productoAnadido:Pedido ={ 
-      tematica,
-      nameCumpleanero,
-      sabores,
-      zise,
-      fechaDeRecogida,
-      horaDeRecogida,
-      cantidad,
-      name,
-      img,
-      price,
-      total ,
-      descripcion
+    
+     if(this.buyForm.invalid ){ 
+      Swal.fire('error!', 'El formulario es invalido rellene todos los campos ', 'error') 
+      this.buyForm.markAllAsTouched()
+      return   
+    } 
+    else if(this.model == null || undefined){
+      Swal.fire('error!', 'Introduce una fecha de recogida', 'error')
+      return  
     }
-
-    if(this.buyForm.invalid){ 
-      return this.buyForm.markAllAsTouched()
-    }else if (this.buyForm.valid){
+    //añadir validaciones de años dias y meses  y meter validacion visual de la fecha
+    else if (this.buyForm.valid && this.model.day > 1 && this.model.month > 1  && this.model.year >= 2022 ){
+      
+      const {tematica,nameCumpleanero,sabores,zise,horaDeRecogida,cantidad} = this.buyForm.value
+      const {name,img,price,discount,descripcion,category} = this.item
+      const total = this.total += this.item.price * cantidad;
+      const  {year,month,day} = this.model
+      console.log(this.total);
+      const productoAnadido:Pedido ={ 
+        tematica,
+        nameCumpleanero,
+        sabores,
+        zise,
+        horaDeRecogida,
+        cantidad,
+        name,
+        img,
+        price,
+        total ,
+        descripcion,
+        year,
+        month,
+        day
+      }
       this.addCartList.push(productoAnadido)
       this.CartService.guardarEnLocal(this.addCartList)
       this.CartService.calculateTotal(total)

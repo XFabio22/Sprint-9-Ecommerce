@@ -1,10 +1,5 @@
-import { Pedido } from './../admin/interfaces/products.interfaces';
+import { Pedido } from './../admin/interfaces/pedidos.interfaces';
 import { Pipe, PipeTransform } from "@angular/core";
-import { DBProduct } from "src/app/admin/interfaces/products.interfaces";
-
-
-
-
 
 
 @Pipe({

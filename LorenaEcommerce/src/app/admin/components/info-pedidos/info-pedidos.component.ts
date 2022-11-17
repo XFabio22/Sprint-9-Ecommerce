@@ -1,9 +1,9 @@
-import { DbPedido } from 'src/app/admin/interfaces/products.interfaces';
+
 import { ActivatedRoute } from '@angular/router';
 import { productsService } from 'src/app/admin/services/products.service';
 import { Component, OnInit } from '@angular/core';
 import { switchMap } from 'rxjs';
-import { Pedido } from '../../interfaces/products.interfaces';
+import { Pedido } from '../../interfaces/pedidos.interfaces';
 
 @Component({
   selector: 'app-info-pedidos',

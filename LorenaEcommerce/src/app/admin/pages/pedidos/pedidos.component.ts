@@ -1,4 +1,4 @@
-import { arrayPedidos, DbPedido } from 'src/app/admin/interfaces/products.interfaces';
+import { arrayPedidos, DbPedido } from 'src/app/admin/interfaces/pedidos.interfaces';
 import { Component, OnInit } from '@angular/core';
 import { productsService } from '../../services/products.service';
 @Component({
