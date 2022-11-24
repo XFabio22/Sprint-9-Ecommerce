@@ -3,14 +3,21 @@
 <hr>
 <div class="container-fluid ">
     <div class="row ">
+
         <div *ngFor="let item of DbPedido ;let i = index" class="col-md-4 col-lg-3 col-sm-6 ">
-            
-            <div class="col-6" >
-                <p> Tienes un pedido de :{{item.userName}}</p>
-                <p> {{item.date | date}}</p>
-                <p> {{item._id }}</p>
-                <button class="btn btn-primary" [routerLink]="['info/', item._id]">mirar detalles de pedido</button>
-            </div> 
+            <div class="card text-center">
+                <div class="card-header text-danger">
+                    Pedido pendiente 
+                </div>
+                <div class="card-body">
+                        <h5 class="card-title">El usuario  {{item.userName}} realizo un pedido</h5>
+                        <p class="card-text">ID de el pedido: {{item._id }}</p>
+                        <button class="btn btn-primary" [routerLink]="['info/', item._id]"> detalles de el pedido</button>
+                </div>
+                <div class="card-footer text-muted">
+                    {{item.date | date}} 
+                </div>
+            </div>
         </div>
     </div>
 </div>  

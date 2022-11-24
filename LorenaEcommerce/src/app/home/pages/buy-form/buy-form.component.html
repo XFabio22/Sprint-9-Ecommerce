@@ -9,11 +9,11 @@
             <p>{{item.descripcion}}</p>
             <hr class="text-danger">
             <form  [formGroup]="buyForm"  class="needs-validation" novalidate >
-                <div *ngIf="item.category === 'Personalizados'">
+                <!-- <div *ngIf="item.category === 'Personalizados'">
                     <p class="text-danger" >Si desea el mismo pastel que el de la foto ESCRIBA EL MISMO NOMBRE EN EL CAMPO DE TEMATICA </p>
                     <label for="TEMÁTICA">ESCRIBE AQUÍ LA TEMÁTICA</label>
                     <div class="input-group mb-2">
-                        <!-- TEMÁTICA -->
+                     
                         <input 
                         type="text" 
                         class="form-control"
@@ -24,7 +24,7 @@
                         >
 
                     </div>
-                </div>
+                </div> -->
 
                 <label for="nameCumpleanero">ESCRIBE AQUÍ EL NOMBRE DE EL CUMPLEAÑER@</label>
                 <div class="input-group mb-2 ">
@@ -51,7 +51,7 @@
                         <select formControlName="sabores"   class="form-select" aria-label="Default select example" required>
                             <option  value="Vainilla y chocolate ">Vainilla y chocolate </option>
                             <option  value="Chocolate con relleno de fresas">Chocolate con relleno de mermelada de fresas</option>
-                            <option  value="Formales">Tres leches</option>
+                            <option  value="Tres leches">Tres leches</option>
                         </select>
                 </div>
                 <div class="mb-2" *ngIf="siElCampoNoesValido('sabores')">
@@ -96,21 +96,13 @@
                                         #d="ngbDatepicker"
 
                                     />
-                                    <button class="btn btn-warning bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+                                    <button class="btn btn-Primary bi bi-calendar3" (click)="d.toggle()" type="button"><i class="fa-solid fa-calendar"></i></button>
                                 </div>
                             </div>
                         </form>
                         
                     </div>
 
-<!-- 
-                <div class="mb-2"  *ngIf="siElCampoNoesValido('fechaDeRecogida')">
-                    <span 
-                    class="form-text text-danger "
-                    [innerHTML]="fechaDeRecogidaMsgErr"
-                    ></span>
-                </div>
--->
 
 
                 <!-- Hora -->
@@ -139,7 +131,7 @@
             <div class="input-group w-50">
                     
                 <button 
-                class="btn ms-2 btn-warning"    
+                class="btn ms-2 btn-Primary"    
                 type="button" 
                 (click)="restar(buyForm.value.cantidad ,'cantidad')"
                 >
@@ -154,7 +146,7 @@
                 min="0"
             >
             <button
-                class="btn  btn-warning" 
+                class="btn  btn-Primary" 
                 type="button"
                 (click)="sumar('cantidad')"
                 >
@@ -167,6 +159,17 @@
                 [innerHTML]="cantidadMsgErr"
                 ></span>
             </div>
+
+            <label for="floatingTextarea ">Observaciones</label>
+            <div class="input-group  mb-2">
+                <input
+                type="text"
+                class="form-control"  
+                formControlName="Observaciones"
+                placeholder="Soy alergico al gluten..."
+                >
+            </div>
+            
 
                 <div class="d-grid gap-2 mt-3">  
                     <button class="buttonEspecial " (click)="addCart()"> 

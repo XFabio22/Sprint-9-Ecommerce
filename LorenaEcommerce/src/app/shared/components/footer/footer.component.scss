@@ -18,13 +18,6 @@
     color: #FAF3EB;
 }
 
-/********** Template CSS **********/
-:root {
-    --primary: #E88F2A;
-    --secondary: #FAF3EB;
-    --light: #FFFFFF;
-    --dark: #2B2825;
-}
 
 .font-Secondary {
     font-family: 'Pacifico', cursive;
@@ -103,3 +96,9 @@ h6,
 }
 
 
+
+
+.bg-img {
+    background: linear-gradient(rgba(43, 40, 37, .5), rgba(43, 40, 37, .5)), url(../../../../assets/img/bg.jpg) center center no-repeat;
+    background-size: cover;
+}

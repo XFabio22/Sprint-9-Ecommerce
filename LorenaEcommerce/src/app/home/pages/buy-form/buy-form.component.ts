@@ -30,17 +30,14 @@ export class BuyFormComponent implements OnInit {
     private CartService:CartService
   ) { }
   item! : DBProduct 
-  testForm = this.fb.group({
-    firstDate: '',
-    lastDate: ''
-  });
+
   buyForm:FormGroup =this.fb.group({
-    tematica:[''],
     nameCumpleanero:['',[Validators.required, Validators.minLength(3)]],
     sabores:['',[Validators.required]],
     zise:['',Validators.required],
     horaDeRecogida:['',[Validators.required]],
-    cantidad:[0,[Validators.required , Validators.pattern(/^[1-9]\d*$/),Validators.min(1)]]
+    cantidad:[0,[Validators.required , Validators.pattern(/^[1-9]\d*$/),Validators.min(1)]],
+    Observaciones: ['']
   })
 
 
@@ -68,7 +65,7 @@ export class BuyFormComponent implements OnInit {
     switchMap(({_id} ) =>
     this.productsService.getDetailProducts(_id))
       )
-     .subscribe( res =>  this.item =  res );
+    .subscribe( res =>  this.item =  res );
   }
 
 
@@ -128,12 +125,12 @@ export class BuyFormComponent implements OnInit {
   get addCartList() {
     return this.CartService.cartList;
   }
-  // addCartList:productoAnadido[]=[]
+
   
   addCart(){
   
     
-     if(this.buyForm.invalid ){ 
+    if(this.buyForm.invalid ){ 
       Swal.fire('error!', 'El formulario es invalido rellene todos los campos ', 'error') 
       this.buyForm.markAllAsTouched()
       return   
@@ -145,18 +142,19 @@ export class BuyFormComponent implements OnInit {
     //añadir validaciones de años dias y meses  y meter validacion visual de la fecha
     else if (this.buyForm.valid && this.model.day > 1 && this.model.month > 1  && this.model.year >= 2022 ){
       
-      const {tematica,nameCumpleanero,sabores,zise,horaDeRecogida,cantidad} = this.buyForm.value
+      const {nameCumpleanero,sabores,zise,horaDeRecogida,cantidad, Observaciones} = this.buyForm.value
       const {name,img,price,discount,descripcion,category} = this.item
       const total = this.total += this.item.price * cantidad;
       const  {year,month,day} = this.model
       console.log(this.total);
       const productoAnadido:Pedido ={ 
-        tematica,
+        
         nameCumpleanero,
         sabores,
         zise,
         horaDeRecogida,
         cantidad,
+        Observaciones,
         name,
         img,
         price,

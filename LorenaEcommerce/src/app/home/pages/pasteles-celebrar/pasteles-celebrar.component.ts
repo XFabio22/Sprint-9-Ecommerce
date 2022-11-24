@@ -12,12 +12,12 @@ export class PastelesCelebrarComponent implements OnInit {
   category:string = 'Celebrar'
   productos:DBProduct[]=[]
   ngOnInit(): void {
-    this.productsService.getListProdcutsCategory(this.category)
-    .subscribe((res:ProductsResponse)=>{
-      this.productos.push(...res.dbProduct);
-      console.log(this.productos);
+    // this.productsService.getListProdcutsCategory(this.category)
+    // .subscribe((res:ProductsResponse)=>{
+    //   this.productos.push(...res.dbProduct);
+    //   console.log(this.productos);
       
-    });
+    // });
   }
 
 }

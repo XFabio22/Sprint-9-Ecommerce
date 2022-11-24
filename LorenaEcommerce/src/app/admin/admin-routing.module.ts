@@ -35,7 +35,9 @@ const rutasADMIN: Routes = [
                 component:InfoPedidosComponent 
             }
         ]
+       
     }
+
 ];
 
 @NgModule({

@@ -1,8 +1,52 @@
 
-<div class="container">
-    <div class="row">
-        <div class="col" *ngFor="let item of pedidos">
-            {{item.descripcion}}
+
+    <div class="container-fluid h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+          <div *ngFor="let item of pedidos">
+            <div class="card mb-3">
+                <div class="card-body p-4">
+    
+                    <div class="row align-items-center ">
+                        <div class="col-md-2">
+                            <img [src]="item | imagen"
+                            class="img-fluid" alt="Generic placeholder image">
+                        </div>
+                        <div class="col-md-3 d-flex justify-content-center  align-items-center">
+                            <div>
+                                <p class="lead  ">{{item.name}} </p>
+                                <p class="lead  mb-4 ">{{item.zise}} // {{item.sabores}} </p>
+                            </div>
+                        </div>
+            
+                        <div class="col-md-2 d-flex justify-content-center">
+                            <div>
+                                <p class="small text-muted mb-0">Cumplañero</p>
+                                <p class="lead f mb-4 ms-3 me-2"> {{item.nameCumpleanero}} </p>
+                            </div>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center">
+                            <div>
+                                <p class="small text-muted mb-0 ">Fecha de entrega</p>
+                                <p class="lead  mb-4 ">{{item.month}}/{{item.day}}/{{item.year}}</p>
+                            </div>
+                        </div>
+
+                    
+                        <div class="col-md-2 d-flex justify-content-center">
+                            <div>
+                                <p class="small text-muted mb-0">Qty. </p>
+                                <p class="lead  mb-4 ">{{item.cantidad}}</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    </div>
+                </div>
+
+            </div>
+
+            </div>
         </div>
     </div>
-</div>
+
