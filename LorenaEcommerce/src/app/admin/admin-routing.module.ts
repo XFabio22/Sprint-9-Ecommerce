@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListComponent } from './pages/list/list.component';
 import { AddProductsComponent } from './pages/add-products/add-products.component';
-import { FormEditComponent } from './components/form-edit/form-edit.component';
+import { FormAddEditComponent } from './components/form-add-edit/form-add-edit.component';
 import { PedidosComponent } from './pages/pedidos/pedidos.component';
 import { InfoPedidosComponent } from './components/info-pedidos/info-pedidos.component';
 
@@ -24,11 +24,11 @@ const rutasADMIN: Routes = [
 
             {
                 path:'addProducts',
-                component:AddProductsComponent
+                component:FormAddEditComponent
             },
             {
                 path:'list/edit/:_id',
-                component:FormEditComponent
+                component:FormAddEditComponent
             },
             {
                 path: 'pedidos/info/:_id',

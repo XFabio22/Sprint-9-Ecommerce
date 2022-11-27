@@ -12,48 +12,48 @@ import Swal from 'sweetalert2'
 export class AddProductsComponent  {
   
   constructor(private fb:FormBuilder,private productsService:productsService) { }
-  submitted = false;
-  addProductsForm:FormGroup =this.fb.group({
-    name:['',[Validators.required, Validators.minLength(3)]],
-    img:['',Validators.required],
-    price:[0,[Validators.required,Validators.min(1)]],
-    discount:[0],
-    descripcion:['',[Validators.required,Validators.minLength(10)]],
-    category:['',Validators.required]
-  })  
+  // submitted = false;
+  // addProductsForm:FormGroup =this.fb.group({
+  //   name:['',[Validators.required, Validators.minLength(3)]],
+  //   img:['',Validators.required],
+  //   price:[0,[Validators.required,Validators.min(1)]],
+  //   discount:[0],
+  //   descripcion:['',[Validators.required,Validators.minLength(10)]],
+  //   category:['',Validators.required]
+  // })  
 
-  get f(){
-    return this.addProductsForm.controls;
-  }
+  // get f(){
+  //   return this.addProductsForm.controls;
+  // }
 
-  onReset() {
-    this.submitted = false;
-    this.addProductsForm.reset();
-  }
+  // onReset() {
+  //   this.submitted = false;
+  //   this.addProductsForm.reset();
+  // }
 
-  addProduct(){
-    const{name,img,price,discount,descripcion,category} = this.addProductsForm.value
-    this.submitted = true
-    if(this.addProductsForm.invalid){
-      // Swal.fire('Error','rellene todos los campos','error')
-      return  
-    }
-    else if(this.addProductsForm.valid){
+  // addProduct(){
+  //   const{name,img,price,discount,descripcion,category} = this.addProductsForm.value
+  //   this.submitted = true
+  //   if(this.addProductsForm.invalid){
+  //     // Swal.fire('Error','rellene todos los campos','error')
+  //     return  
+  //   }
+  //   else if(this.addProductsForm.valid){
     
-      this.productsService.addProducts(name,img,price,discount,descripcion,category)
-      .subscribe(ok =>{
-        console.log(ok);
+  //     this.productsService.addProducts(name,img,price,discount,descripcion,category)
+  //     .subscribe(ok =>{
+  //       console.log(ok);
         
-        if(ok){
-          Swal.fire('Saved!', 'El prodcuto se añadio correctamente', 'success')
+  //       if(ok){
+  //         Swal.fire('Saved!', 'El prodcuto se añadio correctamente', 'success')
         
-        }else if(!ok){
-          Swal.fire('Error', `Puede que este nombre ya lo tenga otro producto ` ,'error');
-        }
+  //       }else if(!ok){
+  //         Swal.fire('Error', `Puede que este nombre ya lo tenga otro producto ` ,'error');
+  //       }
         
-      })
-      this.addProductsForm.reset({name:'',img:'',price:0,discount:0,descripcion:'',category:''})
-    }
+  //     })
+  //     this.addProductsForm.reset({name:'',img:'',price:0,discount:0,descripcion:'',category:''})
+  //   }
     
-  }
+  // }
 }

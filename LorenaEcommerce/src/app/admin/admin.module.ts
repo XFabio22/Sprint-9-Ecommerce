@@ -9,7 +9,7 @@ import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
 
 import { AddProductsComponent } from './pages/add-products/add-products.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FormEditComponent } from './components/form-edit/form-edit.component';
+import { FormAddEditComponent } from './components/form-add-edit/form-add-edit.component';
 import { imgPipe } from './pipes/img.pipe';
 import { PedidosComponent } from './pages/pedidos/pedidos.component';
 import { InfoPedidosComponent } from './components/info-pedidos/info-pedidos.component';
@@ -26,7 +26,7 @@ import { InfoPedidosComponent } from './components/info-pedidos/info-pedidos.com
     ListComponent,
     AdminHomeComponent,
     AddProductsComponent,
-    FormEditComponent,
+    FormAddEditComponent,
     imgPipe,
     PedidosComponent,
     InfoPedidosComponent
