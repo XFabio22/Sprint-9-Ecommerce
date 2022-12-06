@@ -37,7 +37,6 @@ const rutasADMIN: Routes = [
         ]
        
     }
-
 ];
 
 @NgModule({

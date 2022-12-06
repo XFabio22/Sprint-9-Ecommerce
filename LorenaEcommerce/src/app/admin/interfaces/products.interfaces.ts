@@ -3,8 +3,8 @@ export interface ProductsResponse {
     dbProduct: DBProduct[];
 }
     export interface DBProduct {
-    __v:         number;
-    _id:         string;
+    __v?:         number;
+    _id?:         string;
     category:    string;
     descripcion: string;
     discount?:   number;

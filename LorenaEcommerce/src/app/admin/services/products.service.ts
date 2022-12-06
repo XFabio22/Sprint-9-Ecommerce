@@ -72,8 +72,8 @@ export class productsService {
         return this.http.post<any>(url,body)
     }
     //EDIT
-    edittProducts(id:string, name:string ,img:string,price:number,discount:number,descripcion:string,category:string) :Observable<any>{
-        const url = `${this.Base_UrL}/producto/edit/${id}` 
+    edittProducts(_id:string, name:string ,img:string,price:number,discount:number,descripcion:string,category:string) :Observable<any>{
+        const url = `${this.Base_UrL}/producto/edit/${_id}` 
         const body = {name,category,price,discount,img,descripcion}
         return this.http.put<any>(url,body)
     }

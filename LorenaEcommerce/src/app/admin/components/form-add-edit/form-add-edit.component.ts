@@ -13,7 +13,7 @@ import Swal from 'sweetalert2'
   styleUrls: ['./form-add-edit.component.scss']
 })
 export class FormAddEditComponent implements OnInit {
-  AddEditForm!: FormGroup;
+ 
   _id!: string;
   isAddMode!: boolean;
   loading = false;
@@ -27,16 +27,25 @@ export class FormAddEditComponent implements OnInit {
   producto! : DBProduct 
 
 ngOnInit(): void {
-  this._id = this.activatedRoute.snapshot.params['_id'];
+  this._id = this.activatedRoute.snapshot.params['_id']; //DETECTA SI HAY UN ID EN EL URL y CAMBIA EL MODO MEDIANTE TRUE FALSE
+
   this.isAddMode = !this._id;
-    this.AddEditForm=this.fb.group({
-    name:['',[Validators.required, Validators.minLength(3)]],
-    img:['',Validators.required],
-    price:[,[Validators.required,Validators.minLength(1)]],
-    discount:[],
-    descripcion:['',[Validators.required,Validators.minLength(10)]],
-    category:['',[Validators.required]]
-  })
+  this.producto = {
+    name:'',
+    img:'',
+    price:0,
+    discount:0,
+    descripcion:'',
+    category:''
+  }
+    // this.AddEditForm=this.fb.group({
+    // name:['',[Validators.required, Validators.minLength(3)]],
+    // img:['',Validators.required],
+    // price:[,[Validators.required,Validators.minLength(1)]],
+    // discount:[],
+    // descripcion:['',[Validators.required,Validators.minLength(10)]],
+    // category:['',[Validators.required]]
+  //})
 
   if(!this.isAddMode){
      // switchMap Recibe un observable y regresa otro observable
@@ -52,37 +61,37 @@ ngOnInit(): void {
 submitted = false;
 
   get f(){
-    return this.AddEditForm.controls;
+    return ;
   }
 
   onReset() {
     this.submitted = false;
-    this.AddEditForm.reset();
+    // this.productoEditCreate;
   }
 
 onSubmit(){
   this.submitted = true;
-  if(this.AddEditForm.invalid){
-    return
-  }
+  // if(){
+  //   return
+  // }
   this.loading= true;
   if(this.isAddMode){
     this.addProduct();
   }else{
-    this.editProducto(this.producto._id)
+    this.editProducto(this.producto._id!)
   }
 }
 
   addProduct(){
-    const{name,img,price,discount,descripcion,category} = this.AddEditForm.value
+    const{name,img,price,discount,descripcion,category} = this.producto
     // this.submitted = true
-    if(this.AddEditForm.invalid){
-      // Swal.fire('Error','rellene todos los campos','error')
+    if(this.producto.name.trim().length == 0){
+       Swal.fire('Error','rellene todos los campos','error')
       return  
     }
-    else if(this.AddEditForm.valid){
+    else if(this.producto.name.length > 3){
     
-      this.productsService.addProducts(name,img,price,discount,descripcion,category)
+      this.productsService.addProducts(name,img,price,discount!,descripcion,category)
       .subscribe(ok =>{
         console.log(ok);
         
@@ -94,7 +103,12 @@ onSubmit(){
         }
         
       })
-      this.AddEditForm.reset({name:'',img:'',price:0,discount:0,descripcion:'',category:''})
+       this.producto.name =''
+       this.producto.img =''
+       this.producto.price =0
+       this.producto.discount =0
+       this.producto.descripcion =''
+       this.producto.category =''
     }
     
   }
@@ -102,12 +116,12 @@ onSubmit(){
 editProducto(_id:string) {
   // //pon alertas antes de hacer todo
   // this.submitted = true
-  const{name,img,price,discount,descripcion,category} = this.AddEditForm.value
-  if(this.AddEditForm.invalid){
+  const{name,img,price,discount,descripcion,category} = this.producto
+  if(this.producto.name.trim().length == 0){
     Swal.fire('Error','rellene todos los campos','error')
-    return  this.AddEditForm.markAllAsTouched()
-  }else if (this.AddEditForm.valid){
-    this.productsService.edittProducts(_id,name,img,price,discount,descripcion,category)
+    return 
+  }else if (this.producto){
+    this.productsService.edittProducts(_id,name,img,price,discount!,descripcion,category)
     .subscribe(res =>{
       if(res.ok){
         Swal.fire('Saved!', res.mgs, 'success')
@@ -118,7 +132,7 @@ editProducto(_id:string) {
     }) 
   }
     // this.addProductsForm.reset({name:'',img:'',price:0,discount:0,descripcion:'',category:''})
-    console.log(this.AddEditForm);
+    console.log(this.producto);
   }
 
 }

@@ -7,37 +7,39 @@
         <div class="col-10">
             <h3 *ngIf="isAddMode">Añada el producto (rellene todo los campos)</h3>
             <h3 *ngIf="!isAddMode">Edite el producto (rellene todo los campos)</h3>
-            <form   [formGroup]="AddEditForm" class="needs-validation" novalidate >
+           
                 <div class="form-floating mb-3">
                     <!-- name -->
                     <input 
                     type="text" 
                     class="form-control"
                     placeholder="Name"
-                    formControlName="name" 
                     required
-                    [ngModel]="producto.name"
+                    [(ngModel)]="producto.name"
                     id="nameID"
-                    [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
+                   
                     
                     >
                     <label for="nameID">Nombre de el producto</label>
-                    <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                    <!-- <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                         [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
                         <div *ngIf="f['name'].errors['required']">Añada un nombre al producto</div>
                         <div *ngIf="f['name'].errors['minlength']">Seleccione una categoria para el producto</div>
-                    </div>
+                    </div> -->
                 </div>
 
 
                 <div class="form-floating mb-3">
 
-                        <select formControlName="category"  id="category"   class="form-select" aria-label="Default select example" [ngClass]="{ 'is-invalid': submitted && f['category'].errors }" required>
+                        <select   id="category"  [(ngModel)]="producto.category"  class="form-select" aria-label="Default select example"  required>
                             <option  value="Personalizados">Personalizados</option>
                             <option  value="Celebrar">Celebrar</option>
                             <option  value="Formales">Formales</option>
-                            <div *ngIf="submitted && f['category'].errors" class="invalid-feedback">
+
+                            <!-- <div *ngIf="submitted && f['category'].errors" class="invalid-feedback">
+                                [ngClass]="{ 'is-invalid': submitted && f['category'].errors }"
                                 <div *ngIf="f['category'].errors['required']">Seleccione una categoria para el producto</div>
-                            </div>
+                            </div> -->
                         </select>   
                         <label for="category">Categoria</label>
                 
@@ -50,15 +52,16 @@
                     class="form-control"
                     id="precio"
                     placeholder="price"
-                    formControlName="price"
+                    [(ngModel)]="producto.price"
                     required
-                    [ngClass]="{ 'is-invalid': submitted && f['price'].errors }"
+                   
                     >
                     <label for="precio">Precio</label>
-                    <div *ngIf="submitted && f['price'].errors" class="invalid-feedback">
+                    <!-- <div *ngIf="submitted && f['price'].errors" class="invalid-feedback">
                         <div *ngIf="f['price'].errors['required']">Introduce el precio de el producto</div>
                         <div *ngIf="f['price'].errors['min']">el valor debe ser mayor a 0</div>
-                    </div>
+                         [ngClass]="{ 'is-invalid': submitted && f['price'].errors }"
+                    </div> -->
                 </div>
                 <!-- Descuento -->
                 <div class="form-floating mb-3">
@@ -67,7 +70,7 @@
                     class="form-control"
                     id="Descuento"
                     placeholder="discount"
-                    formControlName="discount"
+                    [(ngModel)]="producto.discount"
                     
                     required
                     >
@@ -80,39 +83,43 @@
                     class="form-control"
                     id="img"
                     placeholder="img"
-                    formControlName="img"
+                    [(ngModel)]="producto.img"
                
                     required
-                    [ngClass]="{ 'is-invalid': submitted && f['img'].errors }"
+                    
                     >
                     <label for="img">Nombre de la imagen</label>
-                    <div *ngIf="submitted && f['img'].errors" class="invalid-feedback">
+                    <!-- <div *ngIf="submitted && f['img'].errors" class="invalid-feedback">
                         <div *ngIf="f['img'].errors['required']">el producto requiere un nombre de imagen</div>
                     </div>
+                [ngClass]="{ 'is-invalid': submitted && f['img'].errors }" -->
                 </div>
                     <div class="form-floating mb-3">
                         <textarea
                         type="text"
                         class="form-control"  
                         id="floatingTextarea"
-                        formControlName="descripcion"
+                        [(ngModel)]="producto.descripcion"
                         
-                        [ngClass]="{ 'is-invalid': submitted && f['descripcion'].errors }"
+                        
                         ></textarea>
                         <label for="floatingTextarea ">Descripcion</label>
-                        <div *ngIf="submitted && f['descripcion'].errors" class="invalid-feedback">
+                        <!-- <div *ngIf="submitted && f['descripcion'].errors" class="invalid-feedback">
+                            [ngClass]="{ 'is-invalid': submitted && f['descripcion'].errors }"
                             <div *ngIf="f['descripcion'].errors['required']">el producto requiere una descripcion</div>
                             <div *ngIf="f['descripcion'].errors['minlength']">La descripcion debe tener mas o 10 letras</div>
-                        </div>
+                        </div> -->
                     </div>
-                    
+                        <pre>
+                            {{producto | json}}
+                        </pre>
 
             
                 <div class="modal-footer">
 
                     <button type="button" class="btn btn-primary" (click)="onSubmit()">Submit</button>
                 </div>
-            </form>
+       
 
         </div>
 

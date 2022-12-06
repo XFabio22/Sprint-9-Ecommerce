@@ -2,7 +2,7 @@ import { authService } from 'src/app/auth/services/auth.service';
 import { Router } from '@angular/router';
 import { CartService } from './../home/services/cart.service';
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-shopping-cart',
