@@ -61,12 +61,13 @@ ngOnInit(): void {
 submitted = false;
 
   get f(){
-    return ;
+    return this.producto;
+    
   }
 
   onReset() {
     this.submitted = false;
-    // this.productoEditCreate;
+    this.producto.name
   }
 
 onSubmit(){
