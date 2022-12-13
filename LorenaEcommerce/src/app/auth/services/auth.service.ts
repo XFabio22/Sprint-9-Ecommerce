@@ -14,14 +14,10 @@ export class authService {
   constructor(private http:HttpClient) { }
 
   private  _user!:Usuario | undefined
+  public isLogged = false;
   get AuthUser(){
     return {...this._user!}
   }
-
-
-
-
-
 
   tokenValidate():Observable<boolean> {
     const url = `${this.Auth_URL}/auth/renew`
@@ -34,14 +30,11 @@ export class authService {
     .pipe(
         map(res => {
             localStorage.setItem('token',res.token!)
-            
             this._user ={
                 name : res.name!,
                 uid: res.uid!,
                 admin:res.admin!
             }
-
-            
             return res.ok
         }),catchError(err => of(false))
     )

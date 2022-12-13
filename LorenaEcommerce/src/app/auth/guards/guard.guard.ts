@@ -15,37 +15,18 @@ export class GuardGuard implements CanActivate, CanLoad {
       if(this.authService.AuthUser?.admin === true){
         return true
       }else {
-        
-
+      
         return false
       }
      
-    
-    // .pipe(
-    //   tap (valid =>{
-    //     if(!valid){
-    //       this.router.navigate([['']])
-    //     }
-    //   })
-    // )
   }
   canLoad(
     route: Route, 
     segments: UrlSegment[]): Observable<boolean> | boolean  {
       if(this.authService.AuthUser.admin === true){ 
-
         return true
       }else {        
         return false
       }
-     
-  //   return  this.authService.tokenValidate()
-  //   .pipe(
-  //     tap (valid =>{
-  //       if(!valid){
-  //         this.router.navigate([['']])
-  //       }
-  //     })
-  //   )
    }
 }

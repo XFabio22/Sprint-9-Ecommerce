@@ -38,15 +38,6 @@ ngOnInit(): void {
     descripcion:'',
     category:''
   }
-    // this.AddEditForm=this.fb.group({
-    // name:['',[Validators.required, Validators.minLength(3)]],
-    // img:['',Validators.required],
-    // price:[,[Validators.required,Validators.minLength(1)]],
-    // discount:[],
-    // descripcion:['',[Validators.required,Validators.minLength(10)]],
-    // category:['',[Validators.required]]
-  //})
-
   if(!this.isAddMode){
      // switchMap Recibe un observable y regresa otro observable
     this.activatedRoute.params
@@ -60,11 +51,24 @@ ngOnInit(): void {
 
 submitted = false;
 
-  get f(){
-    return this.producto;
-    
+//con formulario solo se necesitaria un get pereo como es un objeeto no 
+  get name(){
+    return Object.entries(this.producto.name).length >= 3
   }
 
+  get img(){
+    return Object.entries(this.producto.img).length == 0
+  }
+  get price(){
+    return Object.entries(this.producto.price).length >= 1
+  }
+  get descripcion(){
+    return Object.entries(this.producto.descripcion).length >= 10
+  }
+
+  get category(){
+    return Object.entries(this.producto.category).length === 0
+  }
   onReset() {
     this.submitted = false;
     this.producto.name
@@ -72,9 +76,6 @@ submitted = false;
 
 onSubmit(){
   this.submitted = true;
-  // if(){
-  //   return
-  // }
   this.loading= true;
   if(this.isAddMode){
     this.addProduct();
@@ -85,12 +86,12 @@ onSubmit(){
 
   addProduct(){
     const{name,img,price,discount,descripcion,category} = this.producto
-    // this.submitted = true
-    if(this.producto.name.trim().length == 0){
+  
+    if( !this.name && !this.price && this.category && this.img &&!this.descripcion){
        Swal.fire('Error','rellene todos los campos','error')
       return  
     }
-    else if(this.producto.name.length > 3){
+    else if (this.name && this.price && !this.category && !this.img && this.descripcion){
     
       this.productsService.addProducts(name,img,price,discount!,descripcion,category)
       .subscribe(ok =>{
@@ -98,6 +99,7 @@ onSubmit(){
         
         if(ok){
           Swal.fire('Saved!', 'El prodcuto se añadio correctamente', 'success')
+          this.router.navigate(['admin/list'])
         
         }else if(!ok){
           Swal.fire('Error', `Puede que este nombre ya lo tenga otro producto ` ,'error');
@@ -115,8 +117,7 @@ onSubmit(){
   }
 
 editProducto(_id:string) {
-  // //pon alertas antes de hacer todo
-  // this.submitted = true
+
   const{name,img,price,discount,descripcion,category} = this.producto
   if(this.producto.name.trim().length == 0){
     Swal.fire('Error','rellene todos los campos','error')
@@ -132,7 +133,7 @@ editProducto(_id:string) {
       }
     }) 
   }
-    // this.addProductsForm.reset({name:'',img:'',price:0,discount:0,descripcion:'',category:''})
+
     console.log(this.producto);
   }
 

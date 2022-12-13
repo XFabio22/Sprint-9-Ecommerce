@@ -42,7 +42,7 @@ export class ListComponent implements OnInit {
           'El producto se elimnino correctamnete',
           'success'
         )
-       // window.location.reload();//recarga la pagina actual
+       window.location.reload();//recarga la pagina actual
     
       } else if (
         /* Read more about handling dismissals below */

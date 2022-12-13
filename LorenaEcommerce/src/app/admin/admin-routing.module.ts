@@ -34,8 +34,17 @@ const rutasADMIN: Routes = [
                 path: 'pedidos/info/:_id',
                 component:InfoPedidosComponent 
             }
+            ,
+            {
+                path:'**',
+                redirectTo:'list'
+            }
         ]
        
+    }
+    ,{
+        path:'**',
+        redirectTo:'admin/list'
     }
 ];
 

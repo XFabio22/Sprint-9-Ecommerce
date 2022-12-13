@@ -11,22 +11,28 @@ export class NavBarComponent implements OnInit {
 
   constructor(private authService: authService ,private router:Router) { }
   public isCollapsed = true;
-  public isLogged = false;
+  get isLogged (){
+    return this.authService.isLogged
+  }
 
   ngOnInit(): void {
-    this.authService.tokenValidate().subscribe()
+    this.authService.tokenValidate().subscribe((res => {
+      if(res == false){
+        this.logout()
+      }
+    }))
     this.userIsLogged()
   }
   userIsLogged() {
     if (localStorage.getItem('token')) {
-      this.isLogged = true;
+      this.authService.isLogged = true;
     } 
   }
 
 
   logout(){
     localStorage.removeItem('token');
-    this.isLogged = false;
+    this.authService.isLogged = false;
     this.router.navigate(['/']);
 
   }

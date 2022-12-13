@@ -23,9 +23,15 @@ const routes: Routes = [
     canActivate:[GuardGuard]
   },
   {
-    path:'**',
+    path:'home',
     redirectTo:'home'
   }
+  ,
+  {
+    path:'admin',
+    redirectTo:'admin'
+  }
+  
 
 
   

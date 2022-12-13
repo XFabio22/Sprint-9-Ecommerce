@@ -17,30 +17,27 @@
                     required
                     [(ngModel)]="producto.name"
                     id="nameID"
-                   
+                    [ngClass]="{ 'is-invalid': submitted && !name  }"
                     
                     >
                     <label for="nameID">Nombre de el producto</label>
-                    <!-- <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
-                         [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
-                        <div *ngIf="f['name'].errors['required']">Añada un nombre al producto</div>
-                        <div *ngIf="f['name'].errors['minlength']">Seleccione una categoria para el producto</div>
-                    </div> -->
+                    <div *ngIf="submitted && !name " class="invalid-feedback">
+                        <div *ngIf="!name">Añada un nombre al producto</div>
+                        <!-- <div *ngIf="f['name'].errors['minlength']">Seleccione una categoria para el producto</div> -->
+                    </div>
                 </div>
 
 
                 <div class="form-floating mb-3">
 
-                        <select   id="category"  [(ngModel)]="producto.category"  class="form-select" aria-label="Default select example"  required>
+                        <select   id="category"  [(ngModel)]="producto.category" [ngClass]="{ 'is-invalid': submitted && category}" class="form-select" aria-label="Default select example"  required>
                             <option  value="Personalizados">Personalizados</option>
                             <option  value="Celebrar">Celebrar</option>
                             <option  value="Formales">Formales</option>
-
-                            <!-- <div *ngIf="submitted && f['category'].errors" class="invalid-feedback">
-                                [ngClass]="{ 'is-invalid': submitted && f['category'].errors }"
-                                <div *ngIf="f['category'].errors['required']">Seleccione una categoria para el producto</div>
-                            </div> -->
                         </select>   
+                        <div *ngIf="submitted && category" class="invalid-feedback">
+                            <div *ngIf="category">Seleccione una categoria para el producto</div>
+                        </div> 
                         <label for="category">Categoria</label>
                 
                 </div>
@@ -54,14 +51,14 @@
                     placeholder="price"
                     [(ngModel)]="producto.price"
                     required
-                   
+                    [ngClass]="{ 'is-invalid': submitted && !price }"
                     >
                     <label for="precio">Precio</label>
-                    <!-- <div *ngIf="submitted && f['price'].errors" class="invalid-feedback">
-                        <div *ngIf="f['price'].errors['required']">Introduce el precio de el producto</div>
-                        <div *ngIf="f['price'].errors['min']">el valor debe ser mayor a 0</div>
-                         [ngClass]="{ 'is-invalid': submitted && f['price'].errors }"
-                    </div> -->
+                    <div *ngIf="submitted && !price" class="invalid-feedback">
+                        <div *ngIf="!price">Introduce el precio de el producto</div>
+                        <div *ngIf="!price ">el valor debe ser mayor a 0</div>
+                         
+                    </div>
                 </div>
                 <!-- Descuento -->
                 <div class="form-floating mb-3">
@@ -71,7 +68,6 @@
                     id="Descuento"
                     placeholder="discount"
                     [(ngModel)]="producto.discount"
-                    
                     required
                     >
                     <label for="Descuento">Descuento</label>
@@ -84,15 +80,15 @@
                     id="img"
                     placeholder="img"
                     [(ngModel)]="producto.img"
-               
+                    [ngClass]="{ 'is-invalid': submitted && img}"
                     required
                     
                     >
                     <label for="img">Nombre de la imagen</label>
-                    <!-- <div *ngIf="submitted && f['img'].errors" class="invalid-feedback">
-                        <div *ngIf="f['img'].errors['required']">el producto requiere un nombre de imagen</div>
+                    <div *ngIf="submitted && img" class="invalid-feedback">
+                        <div *ngIf="img">el producto requiere un nombre de imagen</div>
                     </div>
-                [ngClass]="{ 'is-invalid': submitted && f['img'].errors }" -->
+                
                 </div>
                     <div class="form-floating mb-3">
                         <textarea
@@ -100,15 +96,15 @@
                         class="form-control"  
                         id="floatingTextarea"
                         [(ngModel)]="producto.descripcion"
-                        
+                        [ngClass]="{ 'is-invalid': submitted && !descripcion }"
                         
                         ></textarea>
                         <label for="floatingTextarea ">Descripcion</label>
-                        <!-- <div *ngIf="submitted && f['descripcion'].errors" class="invalid-feedback">
-                            [ngClass]="{ 'is-invalid': submitted && f['descripcion'].errors }"
-                            <div *ngIf="f['descripcion'].errors['required']">el producto requiere una descripcion</div>
-                            <div *ngIf="f['descripcion'].errors['minlength']">La descripcion debe tener mas o 10 letras</div>
-                        </div> -->
+                        <div *ngIf="submitted && !descripcion" class="invalid-feedback">
+                            
+                            <div *ngIf="!descripcion">el producto requiere una descripcion</div>
+                            <div *ngIf="!descripcion">La descripcion debe tener mas o 10 letras</div>
+                        </div>
                     </div>
                         
                 <div class="modal-footer">

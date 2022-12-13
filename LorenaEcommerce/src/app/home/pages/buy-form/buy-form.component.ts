@@ -29,8 +29,10 @@ export class BuyFormComponent implements OnInit {
     private fb:FormBuilder,
     private CartService:CartService
   ) { }
-  item! : DBProduct 
 
+  item! : DBProduct 
+  submitted = false;
+  
   buyForm:FormGroup =this.fb.group({
     nameCumpleanero:['',[Validators.required, Validators.minLength(3)]],
     sabores:['',[Validators.required]],
@@ -66,6 +68,16 @@ export class BuyFormComponent implements OnInit {
     this.productsService.getDetailProducts(_id))
       )
     .subscribe( res =>  this.item =  res );
+  }
+
+
+  get f(){
+    return this.buyForm.controls;
+  }
+
+  onReset() {
+    this.submitted = false;
+    this.buyForm.reset();
   }
 
 
