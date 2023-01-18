@@ -42,10 +42,7 @@ const rutasADMIN: Routes = [
         ]
        
     }
-    ,{
-        path:'**',
-        redirectTo:'admin/list'
-    }
+                        
 ];
 
 @NgModule({
