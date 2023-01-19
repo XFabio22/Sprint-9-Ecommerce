@@ -44,20 +44,20 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-6">
-                                        <button class="noselect btn btn-danger" (click)="productDelete(item._id!)">
+                                    <div class="col-12">
+                                        <button class="noselect btn btn-danger float-start" (click)="productDelete(item._id!)">
                                             Borrar <i class="fa-solid fa-trash"></i>
                                             
                                         </button>
-                                    </div>
-                                    <div class="col-6">
-                                        <button class="noselect btn btn-primary"  [routerLink]="['edit/', item._id]" >
+                                    
+                                    
+                                        <button class="noselect btn btn-primary float-end"  [routerLink]="['edit/', item._id]" >
                                         
                                             Editar    <i class="fa-solid fa-file-pen"></i>
                                             
                                         </button>
-                                    </div>
-                                
+                                    </div>    
+                                        
                                 </div>
                     </div>
                 </div>
